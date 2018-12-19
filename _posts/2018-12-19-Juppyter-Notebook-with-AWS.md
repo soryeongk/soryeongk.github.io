@@ -24,15 +24,15 @@ tags:
 
 [아마존 웹 서버 콘솔](https://aws.amazon.com/console/)에 로그인합니다.
 
-![콘솔페이지]({{ site.baseurl }}/images/{{ site.baseurl }}/images/photo/aws_photo_01.png)
+![콘솔페이지]({{ site.baseurl }}/images/photo/aws_photo_01.png)
 
-![로그인]({{ site.baseurl }}/images/{{ site.baseurl }}/images/photo/aws_photo_02.png)
+![로그인]({{ site.baseurl }}/images/photo/aws_photo_02.png)
 
 
 
 우측 상단의 **지역 설정**을 확인합니다. 기본 지역은 버지니아주로 설정되어있을 확률이 높습니다. 본인의 거주 국가로 설정하시면 됩니다.
 
-![지역설정]({{ site.baseurl }}/images/{{ site.baseurl }}/images/photo/aws_photo_03.png)
+![지역설정]({{ site.baseurl }}/images/photo/aws_photo_03.png)
 
 
 
