@@ -24,7 +24,7 @@ tags:
 
 [아마존 웹 서버 콘솔](https://aws.amazon.com/console/)에 로그인합니다.
 
-![콘솔페이지](photo/aws_photo_01.png)
+![콘솔페이지](soryeongk/images/photo/aws_photo_01.png)
 
 ![로그인](photo/aws_photo_02.png)
 
