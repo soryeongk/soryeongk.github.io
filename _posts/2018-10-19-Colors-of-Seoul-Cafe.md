@@ -10,11 +10,6 @@ tags:
   - 2018데이터야놀자
 ---
 
----
-
-
----
-
 
 
 ---
@@ -45,7 +40,9 @@ tags:
 
 2018데이터야놀자에서 해당 프로젝트를 발표한바있으며,
 
-발표자료는 [슬라이드쉐어](https://www.slideshare.net/ssuser914e44/colors-of-seoul-cafe-122531311?qid=b5f37599-235f-4e0a-bd1e-1dc6eff0f950&v=&b=&from_search=1)에서 확인하실 수 있습니다.
+발표자료는 [슬라이드쉐어](https://www.slideshare.net/ssuser914e44/colors-of-seoul-cafe-122531311?qid=b5f37599-235f-4e0a-bd1e-1dc6eff0f950&v=&b=&from_search=1)에서 확인하실 수 있고,
+
+아직 보수 중이지만, 구현된 내용은 [프로젝트 페이지](https://cafecolormap.github.io/html_page/html_cafe_color_map_iframe_main.html)에서 확인하실 수 있습니다.
 
 
 
