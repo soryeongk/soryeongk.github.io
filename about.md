@@ -4,12 +4,103 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+# soryeongk
 
-### More Information
+단순히 컴퓨터가 재미있다는 이유로 프로그래밍을 시작하여,
+이제는 재미 이상의 자신감을 가진 데이터 분석가입니다.
 
-A place to include any other types of information that you'd like to include about yourself.
+주로, Python, C언어를 다루며,
+데잇걸즈 2기 수료를 계기로 Data 분석, 머신러닝 공부를 시작했습니다.
+스터디(Untitled.ipynb)를 운영하며,
+본격적으로 알고리즘과 자료구조를 공부했고, AWS 사용법을 익혔습니다.
+색데이터와 디자인 등에 관심이 있고,
+2018 데이터야놀자에서 발표경험이 있습니다.
 
-### Contact me
+영어와 일본어로 소통이 가능하며,
+발표와 협업에 익숙하고,
+크고 작은 프로젝트에서 주로 "기술리딩" 혹은 "PM"을 맡았습니다.
 
-[email@domain.com](mailto:email@domain.com)
+아직 접해보지 못한 분야의 데이터가 많은 만큼
+다양한 경험을 쌓으며 데이터로 더 넓은 세상을 보고 싶습니다.
+
+
+
+# Education
+
+* 2016.03 ~ now
+  - 중앙대학교 재학중 (경영학 전공, 소프트웨어 융합전공)
+* 2018.04 ~ 2018.07 (예정)
+  - 도쿄 월드 일본어 학교 (워킹홀리데이)
+* 2018.06 ~ 2018.10
+  - 빅데이터 전문가과정 데잇걸즈 수료
+* 2013.03 ~ 2016.02
+  - 충남외국어고등학교 영어/일본어학과 졸업
+
+
+
+# Work Experience
+
+* 2016.02 ~ 2017.12
+	- (주)글로세움 경영&마케팅 인턴 및 프리랜서 멘토
+```
+(주)글로세움은 대학입시 수시전형 컨설팅 스타트업으로,
+대학생 프리랜서 멘토를 양성하고 학생과 연결해주는 플랫폼입니다.
+2016년 개업 후 인턴으로 선발되었으나,
+2년 후 경영악화로 폐업하면서 회사를 나오게 되었습니다.
+```
+
+
+
+# Volunteering
+
+* 2017.01 ~ 2018.03
+  - 십시일밥 중앙대학교 대표
+* 2016.09 ~ 2016.12
+  - 십시일밥 중앙대학교 봉사자
+
+```
+십시일밥은 학생들이 공강시간에
+교내 학생식당에서 일손을 도운 대가로 시급을 식권으로 환산받아
+동문 학우들에게 이를 기부하는 대학생 연합 봉사단체입니다.
+```
+
+
+
+# Achievements
+
+* 2018.06 ~ 2018.07
+  * 2018년 대학생 100인 토론 워크샵 한경닷컴 대표이사상(2등)
+* 2017.06 ~ 2017.11
+  * NSI 대학생 건전재정 가디언즈 5기 장려상
+
+
+
+# Project List (링크 삽입하기)
+
+* 2018.10 ~ 2018.12
+  * Colors of Toys : 부제정하기
+* 2018.09 ~ 2018.10
+  * Next Hip Place : 자본이 주어진다면 어디에 건물을 살까?
+* 2018.08 ~ 2018.09
+  * Colors of Seoul [cafe] : 서울시내 카페 색감 분석하기
+
+
+
+# Extra Experiences
+
+* 2018.10 ~ 2018.12
+  * Programming & Machine Learning 스터디(Untitled.ipynb) 리더
+* 2018.10
+  * 데이터야놀자 2018 프로젝트 발표
+  * 프로젝트명 : [Colors of Seoul [cafe] : 서울시내 카페 색감 분석하기](https://www.slideshare.net/ssuser914e44/colors-of-seoul-cafe-122531311?qid=b5f37599-235f-4e0a-bd1e-1dc6eff0f950&v=&b=&from_search=1)
+* 2018.10
+  * Little Big Data Ignite 발표
+  * 발표명 : 코딩 새내기, 데이터 새내기
+
+
+
+# Contact me
+
+email : [rlathfud2@gmail.com](rlathfud2@gmail.com)
+
+Instagram : [soryeongk](www.instagram.com/soryeongk)
