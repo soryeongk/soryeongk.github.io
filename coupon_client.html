@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>OliveYoung Nazarene Univ. store</title>
+
+    <style>
+      .dot {
+        height: 100px;
+        width: 100px;
+        background-color: #9bce26;
+        border-style: solid;
+        border-color: #f27370;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+      }
+    </style>
+
+  </head>
+  <body onload='setting();'>
+    <h1>반갑습니다. 행복한 올리브영 나사렛점입니다.</h1>
+
+    <canvas id="circle" width=650 height=375></canvas>
+
+    <script>
+      // 올리브영 초록 : #9bce26; 주황 : #f27370
+
+      function setting() {
+        var ctx = document.getElementById('circle').getContext('2d');
+
+        ctx.beginPath();
+        var X = 125; var Y = 75;
+        var x = 75; var y = 75;
+
+        for (var i=0; i<10; i++) {
+          ctx.moveTo(X, Y);
+          ctx.arc(x, y, 50, 0, Math.PI * 2, true);
+          ctx.strokeStyle = 'green';
+          X += 125
+          x += 125
+          if (i === 4) {
+            X = 125; Y += 125;
+            x = 75; y += 125;
+          }
+        }
+        ctx.stroke();
+
+      }
+
+    </script>
+
+  </body>
+</html>
