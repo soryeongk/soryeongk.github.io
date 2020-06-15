@@ -10,24 +10,41 @@
     <h1>반갑습니다. 행복한 올리브영 나사렛점입니다.</h1>
 
     <canvas id="circle" width=650 height=375></canvas>
+    <input type='submit' value='쿠폰 사용하기' class='clear'>
+
+    <div class='visitingTrace'>
+      <p class='visitingTrace'></p>
 
     <script>
       // 올리브영 초록 : #9bce26; 주황 : #f27370
       // localStorage.clear()
-      var user;
+      var clearCoupon = document.querySelector('.clear');
+      var visitingTrace = document.querySelector('.visitingTrace');
 
-      if (localStorage.getItem('user')) {
-        user['visitingCount'] += 1
+      clearCoupon.addEventListener('click', clear);
+
+      if (localStorage.length > 0) { //재방문인 경우
+        localStorage.setItem(String(localStorage.length+1)+'번째 reVisiting', JSON.stringify(Date()));
+        alert('감사합니다. 오늘 구매하신 상품이 고객님을 더 건강하게 해줄거에요!');
       }
       else {
-        user = {
-          visitingCount : 1
-        }
-        localStorage.setItem('user', JSON.stringify(user));
+        // 첫 방문인 경우
+        alert('올리브영 천안 나사렛점 쿠폰북 방문을 환영합니다!');
+      }
+
+      localStorage.setItem('newVisiting', JSON.stringify(Date()));
+
+      function clear() {
+        localStorage.clear();
+        location.reload();
+        setting();
       }
 
       function setting() {
+        clearCoupon.disabled = true;
+
         var ctx = document.getElementById('circle').getContext('2d');
+        // visitingTrace.textContent = localStorage;
 
         var X = 125; var Y = 75;
         var x = 75; var y = 75;
@@ -38,7 +55,7 @@
           ctx.arc(x, y, 50, 0, Math.PI * 2, true);
           ctx.strokeStyle = 'green';
           // ctx.fill();
-          if (i < user['visitingCount']) {
+          if (i < localStorage.length) {
             ctx.fillStyle = '#f27370';
             ctx.fill();
           }
@@ -51,7 +68,9 @@
           }
         }
 
-
+        if (localStorage.length > 10) {
+          clearCoupon.disabled = false;
+        }
 
       }
 
