@@ -13,19 +13,36 @@
 
     <script>
       // 올리브영 초록 : #9bce26; 주황 : #f27370
-      window.localStorage.getItem('user');
-      
+      localStorage.clear()
+      var user;
+
+      if (localStorage.getItem('user')) {
+        user['visitingCount'] += 1
+      }
+      else {
+        user = {
+          visitingCount : 1
+        }
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+
       function setting() {
         var ctx = document.getElementById('circle').getContext('2d');
 
-        ctx.beginPath();
         var X = 125; var Y = 75;
         var x = 75; var y = 75;
 
         for (var i=0; i<10; i++) {
+          ctx.beginPath();
           ctx.moveTo(X, Y);
           ctx.arc(x, y, 50, 0, Math.PI * 2, true);
           ctx.strokeStyle = 'green';
+          // ctx.fill();
+          if (i < user['visitingCount']) {
+            ctx.fillStyle = '#f27370';
+            ctx.fill();
+          }
+          ctx.stroke();
           X += 125
           x += 125
           if (i === 4) {
@@ -33,7 +50,8 @@
             x = 75; y += 125;
           }
         }
-        ctx.stroke();
+
+
 
       }
 
