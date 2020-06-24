@@ -2,7 +2,7 @@
 <html lang="kr" dir="ltr">
   <head>
     <meta charset="utf-8">
-
+    <script src="smtp.js"></script>
     <title>OliveYoung Nazarene Univ. store</title>
 
   </head>
@@ -36,11 +36,21 @@
 
       function clear() {
         localStorage.clear();
-        location.reload();
-        setting();
       }
 
       function setting() {
+        i = 0;
+        visitingTrace.textContent = '고객님께서 방문하신 날짜입니다.';
+        // visitingTrace.write('<br/>');
+        for (var n in localStorage){
+          if (i < localStorage.length){
+            visitingTrace.textContent += '지난 방문 : ';
+            visitingTrace.textContent += localStorage[n];
+            visitingTrace.textContent += '\n';
+            i++;
+          }
+        }
+
         clearCoupon.disabled = true;
 
         var ctx = document.getElementById('circle').getContext('2d');
@@ -68,11 +78,12 @@
           }
         }
 
-        if (localStorage.length > 10) {
+        if (localStorage.length >= 10) {
           clearCoupon.disabled = false;
         }
 
       }
+
 
     </script>
 

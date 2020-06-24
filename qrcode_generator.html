@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+<body>
+  <div id="qrcode"></div>
+</body>
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	text: "instagram.com/soryeongk",  //연결할 주소를 입력
+	width: 128,
+	height: 128,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.H
+});
+  // qrcode.makeCode('www.naver.com');
+</script>
+
+</html>
