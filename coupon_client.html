@@ -51,7 +51,11 @@
         background-color: #F00;
       }
       .stamp.joy-gift {
-        background-image: url('giftbox.png');
+        background-image: url('joy_gift.png');
+        background-size: cover;
+      }
+      .stamp.special-gift {
+        background-image: url('special_gift.png');
         background-size: cover;
       }
       .notice{
@@ -158,6 +162,10 @@
               html.push('<li class="stamp joy-gift"></li>');
             } else {
               html.push('<li class="stamp filled"></li>');
+              if(i === 8) {
+                html.push('<li class="stamp special-gift"></li>');
+                console.log('ha')
+              }
             }
           } else {
             html.push('<li class="stamp empty"></li>');
