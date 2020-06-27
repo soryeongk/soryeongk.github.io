@@ -1,91 +1,218 @@
 <!DOCTYPE html>
-<html lang="kr" dir="ltr">
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <script src="smtp.js"></script>
-    <title>OliveYoung Nazarene Univ. store</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
+      html {
+        font-size: 16px;
+      }
+
+      h1 {text-align: center;}
+
+      .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      img {
+        border-radius: 50%;
+      }
+
+      #couponField {
+        background-color: #FF0;
+        padding: 1rem;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1rem;
+        width: calc(80vw + 6rem);
+        height: calc(32vw + 3rem);
+      }
+
+      .stamp {
+        border-radius: 16vw;
+      }
+      .stamp.empty {
+        background-color: #FFF;
+      }
+      .stamp.filled {
+        background-color: #F00;
+      }
+      .stamp.joy-gift {
+        background-image: url('giftbox.png');
+        background-size: cover;
+      }
+      .notice{
+        text-align: right;
+      }
+
+    </style>
+    <title>으악</title>
   </head>
-  <body onload='setting();'>
-    <h1>반갑습니다. 행복한 올리브영 나사렛점입니다.</h1>
-
-    <canvas id="circle" width=650 height=375></canvas>
-    <input type='submit' value='쿠폰 사용하기' class='clear'>
-
-    <div class='visitingTrace'>
-      <p class='visitingTrace'></p>
+  <body>
+    <h1>올리브영 천안나사렛점</h1>
+    <form id="stampForm">
+      <label for="stampNum">적립할 도장의 개수를 입력해주세요:</label>
+      <input type="text" id='stampNum' class='stampNum' autocomplete="off">
+      <input type="submit" value="도장 찍기">
+    </form>
+    <ol id='couponField'>
+    </ol>
+    <p class='notice'>실결제 금액 1만원 당 도장 1개씩 GET!</p>
+    <ol id='dateField'>
+    </ol>
 
     <script>
-      // 올리브영 초록 : #9bce26; 주황 : #f27370
-      // localStorage.clear()
-      var clearCoupon = document.querySelector('.clear');
-      var visitingTrace = document.querySelector('.visitingTrace');
+    // {
+    //   stamps: [
+    //     {ts, n},
+    //     {ts, n},
+    //   ],
+    //   usages: [
+    //     {ts, n},
+    //     {ts, n},
+    //   ],
+    // }
+      const MAX_STAMPS = 10;
 
-      clearCoupon.addEventListener('click', clear);
+      function main() {
+        document.querySelector('#stampForm').addEventListener('submit', giveStamp);
 
-      if (localStorage.length > 0) { //재방문인 경우
-        localStorage.setItem(String(localStorage.length+1)+'번째 reVisiting', JSON.stringify(Date()));
-        alert('감사합니다. 오늘 구매하신 상품이 고객님을 더 건강하게 해줄거에요!');
+        // 기존 도장 수를 불러온다.
+        const stamps = loadStamps();
+        // 화면에 도장을 새로 그린다.
+        updateHTML(stamps);
       }
-      else {
-        // 첫 방문인 경우
-        alert('올리브영 천안 나사렛점 쿠폰북 방문을 환영합니다!');
-        localStorage.setItem('newVisiting', JSON.stringify(Date()));
+
+      function giveStamp(e) {
+        e.preventDefault();
+
+        // 새 도장 개수를 얻어온다.
+        const newStamps = getNewStamps();
+        // 기존 도장 수를 불러온다.
+        const curStamps = loadStamps();
+        // 도장을 추가한다.
+        const mergedStamps = [...curStamps, newStamps];
+        // 저장한다.
+        saveStamps(mergedStamps);
+        // 화면에 도장을 새로 그린다.
+        updateHTML(mergedStamps);
+        // 기존에 입력된 값을 지운다.
+        document.querySelector('#stampNum').value = '';
       }
 
-      function clear() {
-        localStorage.clear();
+      function loadStamps() {
+        return JSON.parse(localStorage.stamps || '[]');
       }
 
-      function setting() {
-        i = 0;
-        visitingTrace.textContent = '고객님께서 방문하신 날짜입니다.';
-        // visitingTrace.write('<br/>');
-        for (var n in localStorage){
-          if (i < localStorage.length){
-            visitingTrace.innerHTML += '지난 방문 : ';
-            var trace = localStorage[n].slice(0,26);
-            visitingTrace.innerHTML += (i+1) + trace;
-            visitingTrace.innerHTML += '<br>';
-            i++;
-          }
+      function saveStamps(stamps) {
+        localStorage.stamps = JSON.stringify(stamps);
+      }
+
+      function reset() {
+        saveStamps([]);
+        updateHTML([]);
+      }
+
+      function getNewStamps() {
+        const n = +document.querySelector('#stampNum').value;
+        const now = +new Date();
+        return {ts: now, n: n};
+      }
+
+      function updateHTML(stamps) {
+        drawStamps(stamps);
+        drawDates(stamps);
+      }
+
+      function drawStamps(stamps) {
+        // 10개의 빈 동그라미 5*2
+        // 도장 수만큼의 빨간 동그라미
+        let sumStamps = 0;
+        for(let i = 0; i < stamps.length; i++) {
+          sumStamps += stamps[i].n;
         }
 
-        clearCoupon.disabled = true;
-
-        var ctx = document.getElementById('circle').getContext('2d');
-        // visitingTrace.textContent = localStorage;
-
-        var X = 125; var Y = 75;
-        var x = 75; var y = 75;
-
-        for (var i=0; i<10; i++) {
-          ctx.beginPath();
-          ctx.moveTo(X, Y);
-          ctx.arc(x, y, 50, 0, Math.PI * 2, true);
-          ctx.strokeStyle = '#000000';
-          // ctx.fill();
-          if (i < localStorage.length) {
-            ctx.fillStyle = 'red';
-            ctx.fill();
-          }
-          ctx.stroke();
-          X += 125
-          x += 125
-          if (i === 4) {
-            X = 125; Y += 125;
-            x = 75; y += 125;
+        const html = [];
+        for(let i = 0; i < MAX_STAMPS; i++) {
+          if(i < sumStamps) {
+            if(i === 4) {
+              html.push('<li class="stamp joy-gift"></li>');
+            } else {
+              html.push('<li class="stamp filled"></li>');
+            }
+          } else {
+            html.push('<li class="stamp empty"></li>');
           }
         }
-
-        if (localStorage.length >= 10) {
-          clearCoupon.disabled = false;
-        }
-
+        document.querySelector('#couponField').innerHTML = html.join('');
       }
 
+      function drawDates(stamps) {
+        // let visitingDate = [];
+        // for (let i = 0; i < stamps.length; i++) {
+        //   const s = stamps[i];
+        //   visitingDate.push();
+        // }
+        const html = stamps
+          .map((s, i) => (
+            '<li>' +
+            `${formatDaysAgo(s.ts)} ` +
+            `${s.n}개 (${formatDate(s.ts)}) ` +
+            `<a href="#" class="cancel" data-id="${i}">취소</a>` +
+            '</li>'
+          ))
+          .join('\n');
+        document.querySelector('#dateField').innerHTML = html;
 
+        const cancelLinks = document.querySelectorAll('.cancel');
+        for(let i = 0; i< cancelLinks.length; i++) {
+          cancelLinks[i].addEventListener('click', e => {
+            e.preventDefault();
+            cancelStamps(+e.target.dataset.id);
+          });
+        }
+      }
+
+      function cancelStamps(index) {
+        let stamps = loadStamps();
+        stamps.splice(index, 1);
+        saveStamps(stamps);
+        updateHTML(stamps);
+      }
+
+      function formatDate(ts) {
+        const date = new Date(ts);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const dayOfMonth = String(date.getDate()).padStart(2, '0');
+        const day = '일월화수목금토'.charAt(date.getDay());
+        const hour = String(date.getHours()).padStart(2, '0');
+        const mins = String(date.getMinutes()).padStart(2, '0');
+        return year + '년 ' + month + '월 ' + dayOfMonth + '일 ' + day + '요일 ' + hour + '시 ' + mins + '분';
+      }
+
+      function formatDaysAgo(ts) {
+        const now = +new Date();
+        const delta = now - ts;
+        const days = Math.floor(delta / 1000 / 60 / 60 / 24);
+        const daysAgo = days === 0 ? '오늘' : days + '일 전';
+        return daysAgo;
+      }
+
+      main();
     </script>
-
   </body>
 </html>
