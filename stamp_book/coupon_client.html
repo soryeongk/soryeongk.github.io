@@ -154,17 +154,22 @@
         for(let i = 0; i < stamps.length; i++) {
           sumStamps += stamps[i].n;
         }
-
+        const clearButton = document.querySelector('.clearStamps')
+        clearButton.disabled = true;
         const html = [];
         for(let i = 0; i < MAX_STAMPS; i++) {
+          // console.log(i)
           if(i < sumStamps) {
             if(i === 4) {
               html.push('<li class="stamp joy-gift"></li>');
+              // console.log('joy')
             } else {
-              html.push('<li class="stamp filled"></li>');
-              if(i === 8) {
+              if(i === 9) {
                 html.push('<li class="stamp special-gift"></li>');
-                console.log('ha')
+                // console.log('special')
+                clearButton.disabled = false;
+              }else{
+              html.push('<li class="stamp filled"></li>');
               }
             }
           } else {
