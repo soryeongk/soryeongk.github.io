@@ -30,9 +30,8 @@
       else {
         // 첫 방문인 경우
         alert('올리브영 천안 나사렛점 쿠폰북 방문을 환영합니다!');
+        localStorage.setItem('newVisiting', JSON.stringify(Date()));
       }
-
-      localStorage.setItem('newVisiting', JSON.stringify(Date()));
 
       function clear() {
         localStorage.clear();
@@ -44,9 +43,10 @@
         // visitingTrace.write('<br/>');
         for (var n in localStorage){
           if (i < localStorage.length){
-            visitingTrace.textContent += '지난 방문 : ';
-            visitingTrace.textContent += localStorage[n];
-            visitingTrace.textContent += '\n';
+            visitingTrace.innerHTML += '지난 방문 : ';
+            var trace = localStorage[n].slice(0,26);
+            visitingTrace.innerHTML += (i+1) + trace;
+            visitingTrace.innerHTML += '<br>';
             i++;
           }
         }
@@ -63,10 +63,10 @@
           ctx.beginPath();
           ctx.moveTo(X, Y);
           ctx.arc(x, y, 50, 0, Math.PI * 2, true);
-          ctx.strokeStyle = 'green';
+          ctx.strokeStyle = '#000000';
           // ctx.fill();
           if (i < localStorage.length) {
-            ctx.fillStyle = '#f27370';
+            ctx.fillStyle = 'red';
             ctx.fill();
           }
           ctx.stroke();
