@@ -64,9 +64,10 @@
   <body>
     <h1>올리브영 천안나사렛점</h1>
     <form id="stampForm">
-      <label for="stampNum">적립할 도장의 개수를 입력해주세요:</label>
+      <label for="stampNum">도장의 개수를 입력해주세요:</label>
       <input type="text" id='stampNum' class='stampNum' autocomplete="off">
-      <input type="submit" value="도장 찍기">
+      <input type="submit" value="도장 찍기" class='giveStamp'>
+      <input type="submit" value="쿠폰 사용하기" class='clearStamps'>
     </form>
     <ol id='couponField'>
     </ol>
@@ -88,7 +89,8 @@
       const MAX_STAMPS = 10;
 
       function main() {
-        document.querySelector('#stampForm').addEventListener('submit', giveStamp);
+        document.querySelector('.giveStamp').addEventListener('click', giveStamp);
+        document.querySelector('.clearStamps').addEventListener('click', clearStamps)
 
         // 기존 도장 수를 불러온다.
         const stamps = loadStamps();
@@ -98,7 +100,6 @@
 
       function giveStamp(e) {
         e.preventDefault();
-
         // 새 도장 개수를 얻어온다.
         const newStamps = getNewStamps();
         // 기존 도장 수를 불러온다.
@@ -111,6 +112,11 @@
         updateHTML(mergedStamps);
         // 기존에 입력된 값을 지운다.
         document.querySelector('#stampNum').value = '';
+      }
+
+      function clearStamps() {
+        localStorage.clear()
+        location.reload();
       }
 
       function loadStamps() {
