@@ -119,7 +119,8 @@
       }
 
       function clearStamps() {
-        localStorage.clear()
+        // localStorage.clear()
+        useStamps();
         location.reload();
       }
 
@@ -129,6 +130,15 @@
 
       function saveStamps(stamps) {
         localStorage.stamps = JSON.stringify(stamps);
+      }
+
+      function useStamps() {
+        // 쿠폰을 사용한 날짜를 저장
+        const curUsed = JSON.parse(localStorage.used || '[]');
+        const now = +new Date();
+        const newUsed = {ts : now};
+        localStorage.used = JSON.stringify([...curUsed, newUsed]);
+
       }
 
       function reset() {
