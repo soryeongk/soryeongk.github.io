@@ -58,7 +58,35 @@
         background-image: url('special_gift.png');
         background-size: cover;
       }
-      .notice{
+      .notice {
+        text-align: right;
+      }
+
+      #dateField {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #dateField li {
+        margin: 0.2rem 0;
+      }
+      #dateField li.recent {
+        color: red;
+      }
+      #dateField .tag {
+        color: white;
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+        font-size: 0.8rem;
+      }
+      #dateField .tag.deposit {
+        background-color: blue;
+      }
+      #dateField .tag.withdraw {
+        background-color: green;
+      }
+      #dateField .num {
+        width: 2.5rem;
+        display: inline-block;
         text-align: right;
       }
 
@@ -69,9 +97,9 @@
     <h1>올리브영 천안나사렛점</h1>
     <form id="stampForm">
       <label for="stampNum">도장의 개수를 입력해주세요:</label>
-      <input type="text" id='stampNum' class='stampNum' autocomplete="off">
+      <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off">
       <input type="submit" value="도장 찍기" class='giveStamp'>
-      <input type="submit" value="쿠폰 사용하기" class='clearStamps'>
+      <input type="submit" value="쿠폰 사용하기" class='useStamps'>
     </form>
     <ol id='couponField'>
     </ol>
@@ -84,6 +112,7 @@
     //   stamps: [
     //     {ts, n},
     //     {ts, n},
+    //     {ts, -n},
     //   ],
     //   usages: [
     //     {ts, n},
@@ -94,7 +123,12 @@
 
       function main() {
         document.querySelector('.giveStamp').addEventListener('click', giveStamp);
-        document.querySelector('.clearStamps').addEventListener('click', clearStamps)
+        document.querySelector('.useStamps').addEventListener('click', useStamps)
+
+        // const qs = location.href.split('?')[1]
+        // if(qs === 'reset=1') {
+        //   reset();
+        // }
 
         // 기존 도장 수를 불러온다.
         const stamps = loadStamps();
@@ -104,8 +138,16 @@
 
       function giveStamp(e) {
         e.preventDefault();
+        const n = +document.querySelector('#stampNum').value;
+        if (n <= 0 || n !== Math.floor(n)) {
+          alert('자연수를 입력해주세요! :-)')
+          return;
+        } else if (n === 510) {
+          reset();
+          return;
+        }
         // 새 도장 개수를 얻어온다.
-        const newStamps = getNewStamps();
+        const newStamps = getNewStamps(n);
         // 기존 도장 수를 불러온다.
         const curStamps = loadStamps();
         // 도장을 추가한다.
@@ -118,10 +160,13 @@
         document.querySelector('#stampNum').value = '';
       }
 
-      function clearStamps() {
-        // localStorage.clear()
-        useStamps();
-        location.reload();
+      function useStamps() {
+        const stamps = [
+          ...loadStamps(),
+          {ts: Date.now(), n: -MAX_STAMPS}
+        ];
+        saveStamps(stamps);
+        updateHTML(stamps);
       }
 
       function loadStamps() {
@@ -132,22 +177,12 @@
         localStorage.stamps = JSON.stringify(stamps);
       }
 
-      function useStamps() {
-        // 쿠폰을 사용한 날짜를 저장
-        const curUsed = JSON.parse(localStorage.used || '[]');
-        const now = +new Date();
-        const newUsed = {ts : now};
-        localStorage.used = JSON.stringify([...curUsed, newUsed]);
-
-      }
-
       function reset() {
         saveStamps([]);
         updateHTML([]);
       }
 
-      function getNewStamps() {
-        const n = +document.querySelector('#stampNum').value;
+      function getNewStamps(n) {
         const now = +new Date();
         return {ts: now, n: n};
       }
@@ -164,7 +199,7 @@
         for(let i = 0; i < stamps.length; i++) {
           sumStamps += stamps[i].n;
         }
-        const clearButton = document.querySelector('.clearStamps')
+        const clearButton = document.querySelector('.useStamps')
         clearButton.disabled = true;
         const html = [];
         for(let i = 0; i < MAX_STAMPS; i++) {
@@ -190,17 +225,21 @@
       }
 
       function drawDates(stamps) {
-        // let visitingDate = [];
-        // for (let i = 0; i < stamps.length; i++) {
-        //   const s = stamps[i];
-        //   visitingDate.push();
-        // }
-        const html = stamps
+        // [사용] 10개 (오늘, 2020년 7월 4일 토요일 10시 20분)
+        // [적립]  3개 (오늘, 2020년 7월 4일 토요일 10시 30분)
+        // `[사용/적립] ${Math.abs(몇 개)} (${formatDaysAgo}, ${formatDate}) 취소`
+        const reversed = [...stamps].sort((a, b) => {
+          if(a.ts === b.ts) return 0;
+          return a.ts < b.ts ? 1 : -1;
+        })
+
+        const html = reversed
           .map((s, i) => (
-            '<li>' +
-            `${formatDaysAgo(s.ts)} ` +
-            `${s.n}개 (${formatDate(s.ts)}) ` +
-            `<a href="#" class="cancel" data-id="${i}">취소</a>` +
+            `<li class="${daysAgo(s.ts) <= 7 ? 'recent' : ''}">` +
+            `  <span class="tag ${s.n > 0 ? 'deposit' : 'withdraw'}">${s.n > 0 ? '적립' : '사용'}</span> ` +
+            `  <span class="num">${Math.abs(s.n)}개</span> ` +
+            `  (${formatDaysAgo(s.ts)}, ${formatDate(s.ts)}) ` +
+            `  <a href="#" class="cancel" data-id="${reversed.length - i - 1}">취소</a>` +
             '</li>'
           ))
           .join('\n');
@@ -233,12 +272,15 @@
         return year + '년 ' + month + '월 ' + dayOfMonth + '일 ' + day + '요일 ' + hour + '시 ' + mins + '분';
       }
 
-      function formatDaysAgo(ts) {
+      function daysAgo(ts) {
         const now = +new Date();
         const delta = now - ts;
-        const days = Math.floor(delta / 1000 / 60 / 60 / 24);
-        const daysAgo = days === 0 ? '오늘' : days + '일 전';
-        return daysAgo;
+        return Math.floor(delta / 1000 / 60 / 60 / 24);
+      }
+
+      function formatDaysAgo(ts) {
+        const days = daysAgo(ts);
+        return days === 0 ? '오늘' : days + '일 전';
       }
 
       main();
