@@ -61,7 +61,7 @@
         font-size: 1rem;
       }
 
-      #stampForm label {
+      #stampForm .inputNotice {
         font-size: 1.3rem;
       }
 
@@ -118,7 +118,7 @@
   <body>
     <h1>올리브영 천안나사렛점</h1>
     <form id="stampForm">
-      <label for="stampNum">도장의 개수를 입력해주세요:</label>
+      <label for="stampNum" class='inputNotice'>도장의 개수를 입력해주세요:</label>
       <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off" pattern='\d*'>
       <input type="submit" value="도장 찍기" class='giveStamp'>
       <input type="submit" value="쿠폰 사용하기" class='useStamps'>
