@@ -13,18 +13,6 @@
 
       h1 {text-align: center;}
 
-      .column {
-        float: left;
-        width: 33.33%;
-        padding: 5px;
-      }
-
-      .row::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-
       img {
         border-radius: 50%;
       }
@@ -44,48 +32,65 @@
       .stamp {
         border-radius: 16vw;
       }
+
       .stamp.empty {
         background-color: #FFF;
       }
+
       .stamp.filled {
         background-color: #F00;
       }
+
       .stamp.joy-gift {
         background-image: url('joy_gift.png');
         background-size: cover;
       }
+
       .stamp.special-gift {
         background-image: url('special_gift.png');
         background-size: cover;
       }
-      .notice {
-        text-align: right;
+
+      .noticeField .periodNotice {
+        margin-left: 25%;
       }
 
+      .noticeField .notice {
+        float: right;
+        margin-right: 10%;
+        /* width: calc(80vw + 3rem); */
+
+      }
       #dateField {
         list-style-type: none;
         padding-left: 0;
       }
+
       #dateField li {
         margin: 0.2rem 0;
       }
+
       #dateField li.recent {
-        color: red;
+        color: #f27370;
       }
+
       #dateField .tag {
         color: white;
         padding: 0.1rem 0.3rem;
         border-radius: 3px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
+
       #dateField .tag.deposit {
-        background-color: blue;
+        background-color: #9bce26;
       }
+
       #dateField .tag.withdraw {
-        background-color: green;
+        background-color: #f27370;
       }
+
       #dateField .num {
-        width: 2.5rem;
+        width: 3rem;
         display: inline-block;
         text-align: right;
       }
@@ -100,25 +105,18 @@
       <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off">
       <input type="submit" value="도장 찍기" class='giveStamp'>
       <input type="submit" value="쿠폰 사용하기" class='useStamps'>
+      <!-- <label class="periodNotice">실결제 금액 1만원 당 도장 1개씩 GET!</label> -->
     </form>
     <ol id='couponField'>
     </ol>
-    <p class='notice'>실결제 금액 1만원 당 도장 1개씩 GET!</p>
+    <p class='noticeField'>
+      <span class='periodNotice'>행사기간 2020년 7월 5일 ~ 7월 31일</span>
+      <span class='notice'>실결제 금액 1만원 당 도장 1개씩 GET!</span>
+    </p>
     <ol id='dateField'>
     </ol>
 
     <script>
-    // {
-    //   stamps: [
-    //     {ts, n},
-    //     {ts, n},
-    //     {ts, -n},
-    //   ],
-    //   usages: [
-    //     {ts, n},
-    //     {ts, n},
-    //   ],
-    // }
       const MAX_STAMPS = 10;
 
       function main() {
@@ -235,7 +233,7 @@
 
         const html = reversed
           .map((s, i) => (
-            `<li class="${daysAgo(s.ts) <= 7 ? 'recent' : ''}">` +
+            `<li class="${daysAgo(s.ts) <= 0 ? 'recent' : ''}">` +
             `  <span class="tag ${s.n > 0 ? 'deposit' : 'withdraw'}">${s.n > 0 ? '적립' : '사용'}</span> ` +
             `  <span class="num">${Math.abs(s.n)}개</span> ` +
             `  (${formatDaysAgo(s.ts)}, ${formatDate(s.ts)}) ` +
