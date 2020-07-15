@@ -252,7 +252,7 @@
 
         const html = reversed
           .map((s, i) => (
-            `<li class="${daysAgo(s.ts) <= 0 ? 'recent' : ''}">` +
+            `<li class="${daysAgo(s.ts) <= 7 ? 'recent' : ''}">` +
             `  <span class="tag ${s.n > 0 ? 'deposit' : 'withdraw'}">${s.n > 0 ? '적립' : '사용'}</span> ` +
             `  <span class="num">${Math.abs(s.n)}개</span> ` +
             `  (${formatDaysAgo(s.ts)}, ${formatDate(s.ts)}) ` +
