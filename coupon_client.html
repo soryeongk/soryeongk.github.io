@@ -130,6 +130,7 @@
 
     <script>
       const MAX_STAMPS = 10;
+      const password = 5290;
 
       function main() {
         document.querySelector('.giveStamp').addEventListener('click', giveStamp);
@@ -148,14 +149,20 @@
 
       function giveStamp(e) {
         e.preventDefault();
-        const n = +document.querySelector('#stampNum').value;
+        let n = +document.querySelector('#stampNum').value;
         if (n <= 0 || n !== Math.floor(n)) {
-          alert('자연수를 입력해주세요! :-)')
+          alert('자연수를 입력해주세요!')
           return;
-        } else if (n === 510) {
+        } else if (n % 10000 != password) {
+          alert('구매인증에 실패했습니다.')
+          return;
+        } else if (n === password) {
+          alert('초기화했습니다.')
           reset();
           return;
         }
+        alert('감사합니다. 적립 완료되었습니다!')
+        n = Math.floor(n/10000);
         // 새 도장 개수를 얻어온다.
         const newStamps = getNewStamps(n);
         // 기존 도장 수를 불러온다.
