@@ -2,6 +2,16 @@
 <html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173562146-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173562146-1');
+</script>
+
     <style>
       * {
         box-sizing: border-box;
@@ -113,6 +123,7 @@
   </head>
   <body>
     <h1>올리브영 천안나사렛점</h1>
+  
     <form id="stampForm">
       <label for="stampNum" class='inputNotice'>도장의 개수를 입력해주세요:</label>
       <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off" pattern='\d*'>
@@ -132,6 +143,16 @@
       const MAX_STAMPS = 10;
       const password = 5290;
 
+      // const googleSpreadsheet = require('google-apreadsheet');
+
+      // const creds = require('')
+
+      // const SPREADSHEET_ID = '1hrTBhjRQLrYF_Bk2CbKK0KYK2nQ_rzQDCBRwg66MC-o';
+      // const CLIENT_ID = '399875968362-ee75pv1mdvvonu71lafvct3seof6cb39.apps.googleusercontent.com';
+      // const API_EY = 'AIzaSyAn1QGMo5Op068XyWKJvqYvsfoMiayJb4w';
+      // const SCOPE = 'http://www.googleapis.com/auth/spreadsheets';
+
+
       function main() {
         document.querySelector('.giveStamp').addEventListener('click', giveStamp);
         document.querySelector('.useStamps').addEventListener('click', useStamps)
@@ -145,6 +166,7 @@
         const stamps = loadStamps();
         // 화면에 도장을 새로 그린다.
         updateHTML(stamps);
+
       }
 
       function giveStamp(e) {
