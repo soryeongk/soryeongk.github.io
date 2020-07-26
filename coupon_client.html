@@ -2,15 +2,6 @@
 <html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173562146-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-173562146-1');
-</script>
 
     <style>
       * {
@@ -214,6 +205,7 @@
 
       function saveStamps(stamps) {
         localStorage.stamps = JSON.stringify(stamps);
+        
       }
 
       function reset() {
@@ -322,7 +314,30 @@
         return days === 0 ? '오늘' : days + '일 전';
       }
 
+      function accumulatedStamps() {
+        const stamps = loadStamps();
+        let accumulated = 0;
+        for (let i = 0; i++; i < stamps.length) {
+          if (stamps[i] > 0) {
+            accumulated += stamps[i].n;
+          }
+        }
+        return accumulated;
+      }
+
       main();
+    </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173562146-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173562146-1', {
+        'custom_map': {'dimension1': accumulated}
+      });
     </script>
   </body>
 </html>
