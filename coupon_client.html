@@ -338,6 +338,11 @@
       gtag('config', 'UA-173568855-1', {
         'custom_map' : {'dimension1' : accumulatedStamps()}
       });
+
+      gtag('event', 'any_event_name', {'dimension_name': dimension_value});
+
+      // var dimensionValue = 'SOME_DIMENSION_VALUE';
+      // ga('set', 'dimension1', dimensionValue);
     </script>
   </body>
 </html>
