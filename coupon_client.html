@@ -335,11 +335,15 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('set', {'user_id': 'USER_ID'}); // 로그인한 User-ID를 사용하여 User-ID를 설정합니다.
+
+      
+
       gtag('config', 'UA-173568855-1', {
-        'custom_map' : {'dimension1' : accumulatedStamps()}
+        'custom_map' : {'dimension1' : 'accumulated'}
       });
 
-      // gtag('event', 'any_event_name', {'dimension_name': dimension_value});
+      gtag('event', 'accumulated_coupons_dimension', {'accumulated': accumulatedStamps()});
 
       // var dimensionValue = 'SOME_DIMENSION_VALUE';
       // ga('set', 'dimension1', dimensionValue);
