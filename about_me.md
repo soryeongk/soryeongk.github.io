@@ -46,7 +46,7 @@ permalink: /about/
 
 * 2016.03 ~ now
   - 중앙대학교 재학중 (경영학 전공, 소프트웨어 융합전공)
-* 2018.04 ~ 2018.07 (예정)
+* 2018.04 ~ 2018.06
   - 도쿄 월드 일본어 학교 (워킹홀리데이)
 * 2018.06 ~ 2018.10
   - 빅데이터 전문가과정 데잇걸즈 수료
@@ -118,6 +118,6 @@ permalink: /about/
 
 # Contact me
 
-email : [rlathfud2@gmail.com](rlathfud2@gmail.com)
+email : [soryeongk.kr@gmail.com](soryeongk.kr@gmail.com)
 
 Instagram : [soryeongk](www.instagram.com/soryeongk)
