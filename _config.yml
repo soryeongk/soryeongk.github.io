@@ -6,7 +6,7 @@
 name: soryeongk
 
 # Short bio or description (displayed in the header)
-description: Coding and analyze Data by python
+description: 개발에 진심인 기획자
 
 #
 # Flags below are optional
@@ -14,7 +14,6 @@ description: Coding and analyze Data by python
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: "/images/soryeongk.jpg"
-
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
@@ -90,7 +89,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
+    css_class: "highlight"
 
 # Set the Sass partials directory, as we're using @imports
 sass:
