@@ -28,7 +28,7 @@ navigation:
   - name: Tags
     url: /tags
   - name: Theme
-    url: https://github.com/soryeongk/soryeongk.github.io
+    url: https://github.com/aweekj/kiko-now
 
 # Pagination
 paginate: 5
