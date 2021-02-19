@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      h1 {text-align: center;}
+
+      img {
+        border-radius: 50%;
+      }
+
+      #couponField {
+        background-color: #FFE000;;
+        padding: 1rem;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1rem;
+        width: calc(80vw + 6rem);
+        height: calc(32vw + 3rem);
+      }
+
+      .stamp {
+        border-radius: 16vw;
+      }
+
+      .stamp.empty {
+        background-color: #FFF;
+      }
+
+      .stamp.filled {
+        background-color:#ff0000;
+      }
+
+      .stamp.joy-gift {
+        background-image: url('joy_gift.png');
+        background-size: cover;
+      }
+
+      .stamp.special-gift {
+        background-image: url('special_gift.png');
+        background-size: cover;
+      }
+
+      body > p:nth-child(5) {
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+      }
+      body > p:nth-child(6) {
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+      }
+      /* .noticeField .periodNotice p {
+        margin: 0;
+        padding: 0;
+      } */
+
+      .notice {
+        float: right;
+        margin-right: 8%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+
+      #stampForm .inputNotice {
+        font-size: 1.3rem;
+      }
+
+      #stampForm .giveStamp {
+        font-size: 1rem
+      }
+
+      #stampForm .useStamps {
+        font-size: 1rem
+      }
+
+      #dateField {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      #dateField li {
+        margin: 0.2rem 0;
+      }
+
+      #dateField li.recent {
+        color: #f27370;
+      }
+
+      #dateField .tag {
+        color: white;
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
+
+      #dateField .tag.deposit {
+        background-color: #9bce26;
+      }
+
+      #dateField .tag.withdraw {
+        background-color: #f27370;
+      }
+
+      #dateField .num {
+        width: 3rem;
+        display: inline-block;
+        text-align: right;
+        font-size: 19.5px;
+      }
+
+    </style>
+    <title>또와또 MVP</title>
+  </head>
+  <body>
+    <h1>또 와 또</h1>
+  
+    <form id="stampForm">
+      <label for="stampNum" class='inputNotice'>ex. 도장의 개수를 입력해주세요:</label>
+      <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off" pattern='\d*'>
+      <input type="submit" value="도장 찍기" class='giveStamp'>
+      <input type="submit" value="쿠폰 사용하기" class='useStamps'>
+      <label class="notice">ex. 실결제 금액 1만원 당 도장 1개씩 GET!</label>
+
+    </form>
+    <ol id='couponField'>
+    </ol>
+    <p class='noticeField'>
+      <span class='periodNotice'>
+        <p>ex. 세일 기간 내 도장 10개 모으고 정품 바디워시 증정 받으세요!</p>
+        <p>ex. 도장 적립 기간: 3월2일~3월8일 / 정품 증정 기간: 3월9일~3월31일</p>
+      </span>
+    </p>
+    <ol id='dateField'>
+    </ol>
+
+    <script>
+      const MAX_STAMPS = 10;
+      const password = 5290;
+
+      // const googleSpreadsheet = require('google-apreadsheet');
+
+      // const creds = require('')
+
+      // const SPREADSHEET_ID = '1hrTBhjRQLrYF_Bk2CbKK0KYK2nQ_rzQDCBRwg66MC-o';
+      // const CLIENT_ID = '399875968362-ee75pv1mdvvonu71lafvct3seof6cb39.apps.googleusercontent.com';
+      // const API_EY = 'AIzaSyAn1QGMo5Op068XyWKJvqYvsfoMiayJb4w';
+      // const SCOPE = 'http://www.googleapis.com/auth/spreadsheets';
+
+
+      function main() {
+        document.querySelector('.giveStamp').addEventListener('click', giveStamp);
+        document.querySelector('.useStamps').addEventListener('click', useStamps)
+
+        // const qs = location.href.split('?')[1]
+        // if(qs === 'reset=1') {
+        //   reset();
+        // }
+
+        // 기존 도장 수를 불러온다.
+        const stamps = loadStamps();
+        // 화면에 도장을 새로 그린다.
+        updateHTML(stamps);
+
+      }
+
+      function giveStamp(e) {
+        e.preventDefault();
+        let n = +document.querySelector('#stampNum').value;
+        if (n <= 0 || n !== Math.floor(n)) {
+          alert('자연수를 입력해주세요!')
+          return;
+        } else if (n % 10000 != password) {
+          alert('구매인증에 실패했습니다.')
+          return;
+        } else if (n === password) {
+          alert('초기화했습니다.')
+          reset();
+          return;
+        }
+        alert('감사합니다. 적립 완료되었습니다!')
+        n = Math.floor(n/10000);
+        // 새 도장 개수를 얻어온다.
+        const newStamps = getNewStamps(n);
+        // 기존 도장 수를 불러온다.
+        const curStamps = loadStamps();
+        // 도장을 추가한다.
+        const mergedStamps = [...curStamps, newStamps];
+        // 저장한다.
+        saveStamps(mergedStamps);
+        // 화면에 도장을 새로 그린다.
+        updateHTML(mergedStamps);
+        // 기존에 입력된 값을 지운다.
+        document.querySelector('#stampNum').value = '';
+      }
+
+      function useStamps() {
+        const stamps = [
+          ...loadStamps(),
+          {ts: Date.now(), n: -MAX_STAMPS}
+        ];
+        saveStamps(stamps);
+        updateHTML(stamps);
+      }
+
+      function loadStamps() {
+        return JSON.parse(localStorage.stamps || '[]');
+      }
+
+      function saveStamps(stamps) {
+        localStorage.stamps = JSON.stringify(stamps);
+        
+      }
+
+      function reset() {
+        saveStamps([]);
+        updateHTML([]);
+      }
+
+      function getNewStamps(n) {
+        const now = +new Date();
+        return {ts: now, n: n};
+      }
+
+      function updateHTML(stamps) {
+        drawStamps(stamps);
+        drawDates(stamps);
+      }
+
+      function drawStamps(stamps) {
+        // 10개의 빈 동그라미 5*2
+        // 도장 수만큼의 빨간 동그라미
+        let sumStamps = 0;
+        for(let i = 0; i < stamps.length; i++) {
+          sumStamps += stamps[i].n;
+        }
+        const clearButton = document.querySelector('.useStamps')
+        clearButton.disabled = true;
+        const html = [];
+        for(let i = 0; i < MAX_STAMPS; i++) {
+          // console.log(i)
+          if(i < sumStamps) {
+            if(i === 4) {
+              html.push('<li class="stamp joy-gift"></li>');
+              // console.log('joy')
+            } else {
+              if(i === 9) {
+                html.push('<li class="stamp special-gift"></li>');
+                // console.log('special')
+                clearButton.disabled = false;
+              }else{
+              html.push('<li class="stamp filled"></li>');
+              }
+            }
+          } else {
+            html.push('<li class="stamp empty"></li>');
+          }
+        }
+        document.querySelector('#couponField').innerHTML = html.join('');
+      }
+
+      function drawDates(stamps) {
+        // [사용] 10개 (오늘, 2020년 7월 4일 토요일 10시 20분)
+        // [적립]  3개 (오늘, 2020년 7월 4일 토요일 10시 30분)
+        // `[사용/적립] ${Math.abs(몇 개)} (${formatDaysAgo}, ${formatDate}) 취소`
+        const reversed = [...stamps].sort((a, b) => {
+          if(a.ts === b.ts) return 0;
+          return a.ts < b.ts ? 1 : -1;
+        })
+
+        const html = reversed
+          .map((s, i) => (
+            `<li class="${daysAgo(s.ts) <= 7 ? 'recent' : ''}">` +
+            `  <span class="tag ${s.n > 0 ? 'deposit' : 'withdraw'}">${s.n > 0 ? '적립' : '사용'}</span> ` +
+            `  <span class="num">${Math.abs(s.n)}개</span> ` +
+            `  (${formatDaysAgo(s.ts)}, ${formatDate(s.ts)}) ` +
+            `  <a href="#" class="cancel" data-id="${reversed.length - i - 1}">취소</a>` +
+            '</li>'
+          ))
+          .join('\n');
+        document.querySelector('#dateField').innerHTML = html;
+
+        const cancelLinks = document.querySelectorAll('.cancel');
+        for(let i = 0; i< cancelLinks.length; i++) {
+          cancelLinks[i].addEventListener('click', e => {
+            e.preventDefault();
+            cancelStamps(+e.target.dataset.id);
+          });
+        }
+      }
+
+      function cancelStamps(index) {
+        let stamps = loadStamps();
+        stamps.splice(index, 1);
+        saveStamps(stamps);
+        updateHTML(stamps);
+      }
+
+      function formatDate(ts) {
+        const date = new Date(ts);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const dayOfMonth = String(date.getDate()).padStart(2, '0');
+        const day = '일월화수목금토'.charAt(date.getDay());
+        const hour = String(date.getHours()).padStart(2, '0');
+        const mins = String(date.getMinutes()).padStart(2, '0');
+        return year + '년 ' + month + '월 ' + dayOfMonth + '일 ' + day + '요일 ' + hour + '시 ' + mins + '분';
+      }
+
+      function daysAgo(ts) {
+        const now = +new Date();
+        const delta = now - ts;
+        return Math.floor(delta / 1000 / 60 / 60 / 24);
+      }
+
+      function formatDaysAgo(ts) {
+        const days = daysAgo(ts);
+        return days === 0 ? '오늘' : days + '일 전';
+      }
+
+      function accumulatedStamps() {
+        const stamps = loadStamps();
+        let accumulated = 0;
+        for (let i = 0; i++; i < stamps.length) {
+          if (stamps[i] > 0) {
+            accumulated += stamps[i].n;
+          } 
+        }
+        return accumulated;
+      }
+
+      main();
+      
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173568855-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('set', {'user_id': 'USER_ID'}); // 로그인한 User-ID를 사용하여 User-ID를 설정합니다.
+
+      
+
+      gtag('config', 'UA-173568855-1', {
+        'custom_map' : {'dimension1' : 'accumulated'}
+      });
+
+      gtag('event', 'accumulated_coupons_dimension', {'accumulated': accumulatedStamps()});
+
+      // var dimensionValue = 'SOME_DIMENSION_VALUE';
+      // ga('set', 'dimension1', dimensionValue);
+    </script>
+  </body>
+</html>
