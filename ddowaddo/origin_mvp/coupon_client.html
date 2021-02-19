@@ -150,7 +150,7 @@
 
     <script>
       const MAX_STAMPS = 10;
-      const password = 5290;
+      const password = 510;
 
       // const googleSpreadsheet = require('google-apreadsheet');
 
@@ -184,7 +184,7 @@
         if (n <= 0 || n !== Math.floor(n)) {
           alert('자연수를 입력해주세요!')
           return;
-        } else if (n % 10000 != password) {
+        } else if (n % 1000 != password) {
           alert('구매인증에 실패했습니다.')
           return;
         } else if (n === password) {
@@ -193,7 +193,7 @@
           return;
         }
         alert('감사합니다. 적립 완료되었습니다!')
-        n = Math.floor(n/10000);
+        n = Math.floor(n/1000);
         // 새 도장 개수를 얻어온다.
         const newStamps = getNewStamps(n);
         // 기존 도장 수를 불러온다.
