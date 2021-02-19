@@ -61,22 +61,22 @@ tags:
 
 ## 🎨와이어 프레임
 
-![fishing_splash_01](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_splash_01.png)
+![fishing_splash_01](..\images\photo\fishing\fishing_splash_01.png)
 
-![fishing_splash_02](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_splash_02.png)
+![fishing_splash_02](..\images\photo\fishing\fishing_splash_02.png)
 
-![fishing_main_01](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_main_01.png)
+![fishing_main_01](..\images\photo\fishing\fishing_main_01.png)
 
-![fishing_main_02](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_main_02.png)
+![fishing_main_02](..\images\photo\fishing\fishing_main_02.png)
 
-![fishing_timer_page](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_timer_page.png)
+![fishing_timer_page](..\images\photo\fishing\fishing_timer_page.png)
 
-![fishing_healing_page](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_healing_page.png)
+![fishing_healing_page](..\images\photo\fishing\fishing_healing_page.png)
 
-![fishing_image_01](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_image_01.png)
+![fishing_image_01](..\images\photo\fishing\fishing_image_01.png)
 
-![fishing_image_02](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_image_02.png)
+![fishing_image_02](..\images\photo\fishing\fishing_image_02.png)
 
-![fishing_image_03](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_image_03.png)
+![fishing_image_03](..\images\photo\fishing\fishing_image_03.png)
 
-![fishing_reference_page](C:\Users\sorye\soryeongk\working_space\soryeongk.github.io\images\photo\fishing\fishing_reference_page.png)
+![fishing_reference_page](..\images\photo\fishing\fishing_reference_page.png)
