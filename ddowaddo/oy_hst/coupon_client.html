@@ -45,12 +45,15 @@
         background-size: cover;
       }
 
-      body > p:nth-child(5) {
+      body > p:nth-child(5)
+       {
         font-weight: bold;
         margin: 0;
         padding: 0;
       }
-      body > p:nth-child(6) {
+      
+      body > p:nth-child(6),
+      body > p:nth-child(7) {
         margin: 0;
         padding: 0;
         margin-top: 5px;
@@ -126,7 +129,7 @@
       <input type="number" id='stampNum' class='stampNum' min="1" autocomplete="off" pattern='\d*'>
       <input type="submit" value="도장 찍기" class='giveStamp'>
       <input type="submit" value="쿠폰 사용하기" class='useStamps'>
-      <label class="notice">실결제 금액 1만원 당 도장 1개씩 GET!</label>
+      <!-- <label class="notice">실결제 금액 1만원 당 도장 1개씩 GET!</label> -->
 
     </form>
     <ol id='couponField'>
@@ -135,6 +138,7 @@
       <span class='periodNotice'>
         <p>세일 기간 내 도장 10개 모으고 정품 바디워시 증정 받으세요!</p>
         <p>도장 적립 기간: 3월2일~3월8일 / 정품 증정 기간: 3월9일~3월31일</p>
+        <p>실결제금액 1만원당 도장 1개씩 적립 / 바디워시 1인 1개 한정 증정</p>
       </span>
     </p>
     <ol id='dateField'>
