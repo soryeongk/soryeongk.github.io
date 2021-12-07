@@ -1,5 +1,5 @@
-function calcRem(size) {
-  return `${size / 10}rem`;
+function calcRem(size: number) {
+  return `${+size / 10}rem`;
 }
 
 const fontSizes = {

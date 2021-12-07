@@ -1,4 +1,4 @@
-import { Achievements, Education, ProjectList } from "components";
+import { Achievements, Education, ProjectList } from "../../index";
 import { StyledContainer } from "../information/Information";
 
 function Records() {

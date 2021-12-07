@@ -3,34 +3,39 @@ import styled from "styled-components";
 import { theme } from "styled-tools";
 
 interface ContentProps {
-  title: String;
+  title: string;
   children: React.ReactChild;
+  direction?: string;
 }
 
-function ResumeContent({ title, children }: ContentProps) {
+function ResumeContent(props: ContentProps) {
+  const { title, children, direction = "column" } = props;
+
   return (
-    <StyledContainer>
-      <StyledTitle>
+    <StyledContainer direction={direction}>
+      <StyledTitle direction={direction}>
         {title}
         <hr />
       </StyledTitle>
-      <StyledContent>{children}</StyledContent>
+      <StyledContent direction={direction}>{children}</StyledContent>
     </StyledContainer>
   );
 }
 
 export default ResumeContent;
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<{ direction: string }>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => props.direction};
+  justify-content: ${(props) => (props.direction === "row" ? "space-between" : "initial")};
 `;
 
-const StyledTitle = styled.span`
+const StyledTitle = styled.span<{ direction: string }>`
   width: fit-content;
   position: relative;
   ${theme("fonts.title")}
   z-index: 2;
+  padding-top: ${(props) => (props.direction === "row" ? "1.2rem" : "0")};
 
   &::after {
     content: ".";
@@ -49,12 +54,12 @@ const StyledTitle = styled.span`
   }
 `;
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ direction: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-left: 2rem;
+  padding: ${(props) => (props.direction === "column" ? "2rem 0 0 2rem" : "0")};
 
   span {
     ${theme("fonts.display")}

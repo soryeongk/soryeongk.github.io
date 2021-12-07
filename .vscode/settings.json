@@ -1,6 +1,4 @@
 {
-    "editor.formatOnSave": true,
-    "cSpell.words": [
-        "parag"
-    ]
+  "editor.formatOnSave": true,
+  "cSpell.words": ["parag", "SKILLLIST"]
 }

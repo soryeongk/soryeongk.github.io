@@ -1,4 +1,5 @@
 export { default as Header } from "./common/Header";
+export { default as ResumeContent } from "./common/ResumeContent";
 export { default as AboutMe } from "./resume/information/AboutMe";
 export { default as Information } from "./resume/information/Information";
 export { default as Connection } from "./resume/information/Connection";
