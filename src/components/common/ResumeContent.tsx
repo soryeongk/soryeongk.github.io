@@ -4,7 +4,7 @@ import { theme } from "styled-tools";
 
 interface ContentProps {
   title: string;
-  children: React.ReactChild;
+  children: React.ReactNode;
   direction?: string;
 }
 

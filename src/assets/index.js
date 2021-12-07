@@ -11,3 +11,4 @@ export { ReactComponent as NextIcon } from "./icons/next.svg";
 export { ReactComponent as SlackIcon } from "./icons/slack.svg";
 export { ReactComponent as NotionIcon } from "./icons/notion.svg";
 export { ReactComponent as FigmaIcon } from "./icons/figma.svg";
+export { ReactComponent as ListIndexIcon } from "./icons/listIndex.svg";

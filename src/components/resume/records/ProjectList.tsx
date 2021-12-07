@@ -1,15 +1,22 @@
+import { ContentList, ResumeContent } from "components";
 import { useNavigate } from "react-router";
+
+const PROJECTS: string[] = ["cherish", "dibker", "colfume", "ddowaddo"];
 
 function ProjectList() {
   const navigate = useNavigate();
 
   return (
-    <ul>
-      <li onClick={() => navigate("/project/cherish")}>Cherish</li>
-      <li onClick={() => navigate("/project/dibker")}>dibker</li>
-      <li onClick={() => navigate("/project/colfume")}>colfume</li>
-      <li onClick={() => navigate("/project/ddowaddo")}>또와또</li>
-    </ul>
+    <ResumeContent title="Projects">
+      {PROJECTS.map((project) => (
+        <ContentList
+          key={project}
+          date="0000.00.00 ~ 0000.00.00"
+          content={project}
+          onContentClick={() => navigate(`/project/${project}`)}
+        />
+      ))}
+    </ResumeContent>
   );
 }
 
