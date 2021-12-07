@@ -1,7 +1,5 @@
-import { DefaultTheme } from "styled-components";
-
-function calcRem(size: Number): String {
-  return `${+size / 10}rem`;
+function calcRem(size) {
+  return `${size / 10}rem`;
 }
 
 const fontSizes = {
@@ -88,7 +86,7 @@ const device = {
   tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
 };
 
-export const theme: DefaultTheme = {
+export const theme = {
   fontSizes,
   fonts,
   colors,
