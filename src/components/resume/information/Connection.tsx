@@ -22,11 +22,11 @@ function Connection() {
         <>
           <StyledContent>
             <GithubIcon />
-            <span style={{ width: "5.2rem" }}>github</span>@soryeongk | github.com/soryeongk
+            <span>github</span>@soryeongk | github.com/soryeongk
           </StyledContent>
           <StyledContent>
             <VelogIcon />
-            <span style={{ width: "5.2rem" }}>velog</span>@soryeongk | velog.io/@soryeongk
+            <span>velog</span>@soryeongk | velog.io/@soryeongk
           </StyledContent>
         </>
       </ResumeContent>
@@ -43,7 +43,7 @@ const StyledContainer = styled.section`
 
 const StyledContent = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   ${theme("fonts.display")}
 
   svg {
@@ -52,7 +52,7 @@ const StyledContent = styled.div`
 
   span {
     position: relative;
-    width: 10rem;
+    width: 7rem;
 
     &::after {
       position: absolute;
