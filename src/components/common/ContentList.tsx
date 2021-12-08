@@ -15,12 +15,12 @@ interface Content {
 function ContentList(props: Content) {
   const { date, content, dateWidth = "21rem", onContentClick, highlight = false } = props;
 
-  const handleClick = () => {
+  function handleClick() {
     if (!highlight) return;
     if (!onContentClick) return;
 
     onContentClick();
-  };
+  }
 
   return (
     <StyledWrapper onClick={handleClick} highlight={highlight}>
