@@ -61,6 +61,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: fit-content;
 `;
 
 const StyledTitle = styled.p`

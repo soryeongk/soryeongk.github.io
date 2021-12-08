@@ -7,7 +7,7 @@ const PROJECTS: { id: string; date: string; projectName: string; content: string
     date: "2020.12.12 ~ now",
     projectName: "cherish",
     content: "[기획] 당신의 소중한 사람을 위한 연락관리 서비스: Cherish",
-    highlight: false,
+    highlight: true,
   },
   {
     id: "project-02",
@@ -28,7 +28,7 @@ const PROJECTS: { id: string; date: string; projectName: string; content: string
     date: "2021.11.13 ~ 12.05",
     projectName: "reBrunch",
     content: "[FrontEnd] bunch 홈페이지 리디자인",
-    highlight: true,
+    highlight: false,
   },
   {
     id: "project-05",
@@ -49,7 +49,7 @@ const PROJECTS: { id: string; date: string; projectName: string; content: string
     date: "2021.05.22 ~ 06.11",
     projectName: "reNaver",
     content: "[FrontEnd] 네이버 홈페이지 리디자인",
-    highlight: true,
+    highlight: false,
   },
   {
     id: "project-08",

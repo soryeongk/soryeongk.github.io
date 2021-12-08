@@ -15,8 +15,15 @@ interface Content {
 function ContentList(props: Content) {
   const { date, content, dateWidth = "21rem", onContentClick, highlight = false } = props;
 
+  const handleClick = () => {
+    if (!highlight) return;
+    if (!onContentClick) return;
+
+    onContentClick();
+  };
+
   return (
-    <StyledWrapper onClick={onContentClick} highlight={highlight}>
+    <StyledWrapper onClick={handleClick} highlight={highlight}>
       <ListIndexIcon />
       <StyledDate dateWidth={dateWidth}>{date}</StyledDate>
       <span>{content}</span>
@@ -33,12 +40,12 @@ const StyledWrapper = styled.div<{ highlight: boolean }>`
     { highlight: true },
     css`
       ${theme("fonts.displayBold")}
+      cursor: pointer;
     `,
     css`
       ${theme("fonts.display")}
     `,
   )}
-  cursor: pointer;
 
   svg {
     margin-right: 1rem;

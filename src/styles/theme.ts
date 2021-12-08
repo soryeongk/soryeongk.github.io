@@ -8,7 +8,7 @@ const fontSizes = {
   paragTitle: calcRem(25),
   subTitle: calcRem(23),
   display: calcRem(20),
-  caption: calcRem(15),
+  caption: calcRem(18),
 };
 
 const fonts = {
