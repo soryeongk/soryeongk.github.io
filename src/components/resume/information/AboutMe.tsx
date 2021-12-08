@@ -42,7 +42,7 @@ export default AboutMe;
 const StyledContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  gap: 6.2rem;
+  /* gap: 6.2rem; */
   width: 100%;
 `;
 
@@ -69,6 +69,7 @@ const StyledTitle = styled.p`
   ${theme("fonts.headLine")}
 
   span {
+    margin-top: 1rem;
     ${theme("fonts.display")}
     color: ${theme("colors.mainGray")};
   }

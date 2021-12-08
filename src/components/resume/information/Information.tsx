@@ -16,7 +16,6 @@ export default Information;
 export const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10rem;
   width: 100%;
-  height: 61rem;
 `;

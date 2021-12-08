@@ -1,12 +1,16 @@
 import { ContentList, ResumeContent } from "components";
 
-const ACHIEVES: string[] = ["SOPT 28th APP-JAM 대상 - Colfume", "SOPT 27th APP-JAM 대상 - Cherish", "JLPT N2 취득"];
+const ACHIEVES: { id: string; date: string; content: string }[] = [
+  { id: "achieve-01", date: "2021.07.17", content: "SOPT 28th APP-JAM 대상 - Colfume" },
+  { id: "achieve-02", date: "2021.01.16", content: "SOPT 28th APP-JAM 최우수상 - Cherish" },
+  { id: "achieve-03", date: "2019.02", content: "JLPT N2 취득" },
+];
 
 function Achievements() {
   return (
     <ResumeContent title="Achievements">
-      {ACHIEVES.map((achieve, idx) => (
-        <ContentList key={`achieve-${idx}`} date="0000.00.00" content={achieve} />
+      {ACHIEVES.map((achieve) => (
+        <ContentList key={achieve.id} date={achieve.date} content={achieve.content} dateWidth="10rem" />
       ))}
     </ResumeContent>
   );

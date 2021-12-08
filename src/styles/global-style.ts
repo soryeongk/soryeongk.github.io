@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     color: ${theme("colors.mainBlack")};
     font-family: NanumMyeongjo;
-    font-size: 10px;
+    font-size: 8px;
   }
 
   a {
