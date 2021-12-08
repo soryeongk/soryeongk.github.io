@@ -74,6 +74,18 @@ const colors = {
   mainGray: "#484848",
   mainWhite: "#EFEFEF",
   mainPoint: "#FFB800",
+  cherishBlack: "#535353",
+  cherishPoint: "#31D692",
+  cherishWhite: "#F8F8F8",
+  colfumeBlack: "#3E3E3E",
+  colfumePoint: "#FFFFFF",
+  colfumeBg: "#F8EFDD",
+  dnolBg: "#FBFCFE",
+  dnolPoint: "#6BEEFF",
+  dnolBlack: "#395D7F",
+  oyBg: "#FAFFF3",
+  oyPoint: "#A6CD48",
+  oyBlack: "#040411",
 };
 
 const deviceSizes = {
