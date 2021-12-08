@@ -1,35 +1,37 @@
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import { ResumeContent } from "components";
-import { EmailIcon, GithubIcon, InstagramIcon, VelogIcon } from "assets";
+import { Channels, Contacts } from "components";
+import { useEffect, useState } from "react";
+import { getChannels, getContacts } from "utils";
+
+export interface ConnectionData {
+  id: string;
+  icon: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string | undefined;
+    }
+  >;
+  connect: string;
+  address: string;
+}
 
 function Connection() {
+  const [contactList, setContactList] = useState<ConnectionData[]>([]);
+  const [channelList, setChannelList] = useState<ConnectionData[]>([]);
+
+  useEffect(() => {
+    (async function () {
+      const contacts = await getContacts();
+      const channels = await getChannels();
+      setContactList(contacts);
+      setChannelList(channels);
+    })();
+  }, []);
+
   return (
     <StyledContainer>
-      <ResumeContent title="Contact">
-        <>
-          <StyledContent>
-            <EmailIcon />
-            <span>e-mail</span>soryeongk.kr@gmail.com
-          </StyledContent>
-          <StyledContent>
-            <InstagramIcon />
-            <span>instagram</span>@soryeongk
-          </StyledContent>
-        </>
-      </ResumeContent>
-      <ResumeContent title="Channels">
-        <>
-          <StyledContent>
-            <GithubIcon />
-            <span>github</span>@soryeongk | github.com/soryeongk
-          </StyledContent>
-          <StyledContent>
-            <VelogIcon />
-            <span>velog</span>@soryeongk | velog.io/@soryeongk
-          </StyledContent>
-        </>
-      </ResumeContent>
+      <Contacts contactList={contactList} />
+      <Channels channelList={channelList} />
     </StyledContainer>
   );
 }
@@ -41,7 +43,7 @@ const StyledContainer = styled.section`
   justify-content: space-between;
 `;
 
-const StyledContent = styled.div`
+export const StyledContent = styled.div`
   display: flex;
   align-items: center;
   ${theme("fonts.display")}
@@ -52,7 +54,7 @@ const StyledContent = styled.div`
 
   span {
     position: relative;
-    width: 7rem;
+    width: 10rem;
 
     &::after {
       position: absolute;

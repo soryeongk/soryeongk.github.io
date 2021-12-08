@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import { Information, Records } from "../components/index";
+import { Information, Records } from "../components";
 
 function Resume() {
   return (

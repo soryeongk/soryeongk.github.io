@@ -1,47 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "styled-tools";
-import {
-  FigmaIcon,
-  GithubIcon,
-  JSIcon,
-  NextIcon,
-  NotionIcon,
-  PyIcon,
-  ReactIcon,
-  SlackIcon,
-  TSIcon,
-} from "assets/index";
 import { ResumeContent } from "components";
+import { getSkills } from "utils";
 
-const SKILLLIST: {
+interface SkillData {
   icon: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
     }
   >;
   skill: string;
-}[] = [
-  { icon: JSIcon, skill: "JavaScript" },
-  { icon: TSIcon, skill: "TypeScript" },
-  { icon: PyIcon, skill: "python" },
-  { icon: ReactIcon, skill: "React" },
-  { icon: NextIcon, skill: "Next" },
-  { icon: GithubIcon, skill: "GitHub" },
-  { icon: SlackIcon, skill: "Slack" },
-  { icon: NotionIcon, skill: "Notion" },
-  { icon: FigmaIcon, skill: "Figma" },
-];
-
-interface Skill {
-  skill: string;
 }
 
 function Skills() {
+  const [skillList, setSkillList] = useState<SkillData[]>([]);
+
+  useEffect(() => {
+    (async function () {
+      const data = await getSkills();
+      setSkillList(data);
+    })();
+  }, []);
+
   return (
     <ResumeContent title="Skills" direction="row">
       <StyledWrapper>
-        {SKILLLIST.map((item, idx) => (
+        {skillList.map((item, idx) => (
           <StyledIconWrapper key={`icon-${idx}`} skill={item.skill}>
             <item.icon />
           </StyledIconWrapper>
@@ -58,7 +43,7 @@ const StyledWrapper = styled.div`
   gap: 5rem;
 `;
 
-const StyledIconWrapper = styled.div<Skill>`
+const StyledIconWrapper = styled.div<{ skill: string }>`
   position: relative;
   display: flex;
   flex-direction: column;

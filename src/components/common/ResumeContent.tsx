@@ -6,14 +6,15 @@ interface ContentProps {
   title: string;
   children: React.ReactNode;
   direction?: string;
+  hrColor?: string;
 }
 
 function ResumeContent(props: ContentProps) {
-  const { title, children, direction = "column" } = props;
+  const { title, children, direction = "column", hrColor } = props;
 
   return (
     <StyledContainer direction={direction}>
-      <StyledTitle direction={direction}>
+      <StyledTitle direction={direction} hrColor={hrColor}>
         {title}
         <hr />
       </StyledTitle>
@@ -30,7 +31,7 @@ const StyledContainer = styled.div<{ direction: string }>`
   justify-content: ${(props) => (props.direction === "row" ? "space-between" : "initial")};
 `;
 
-const StyledTitle = styled.span<{ direction: string }>`
+const StyledTitle = styled.span<{ direction: string; hrColor?: string }>`
   width: fit-content;
   position: relative;
   ${theme("fonts.title")}
@@ -48,7 +49,7 @@ const StyledTitle = styled.span<{ direction: string }>`
     z-index: -1;
     margin: 0;
     border: 0;
-    background-color: ${theme("colors.mainPoint")};
+    background-color: ${(props) => (props.hrColor ? props.hrColor : theme("colors.mainPoint"))};
     width: 100%;
     height: 0.5rem;
   }
