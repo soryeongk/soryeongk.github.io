@@ -1,4 +1,11 @@
 export { default as profileImg } from "./images/profile.png";
+export { default as cherishBanner } from "./images/cherish/banner.png";
+export { default as cherishBannerMid } from "./images/cherish/bannerMid.png";
+export { default as cherishPhoto01 } from "./images/cherish/photo01.png";
+export { default as reOlive0Banner } from "./images/reOlive0/banner.png";
+export { default as reOlive0BannerMid } from "./images/reOlive0/bannerMid.png";
+export { default as reOlive0Photo01 } from "./images/reOlive0/photo01.png";
+export { default as reOlive0Photo02 } from "./images/reOlive0/photo02.png";
 export { ReactComponent as EmailIcon } from "./icons/email.svg";
 export { ReactComponent as InstagramIcon } from "./icons/instagram.svg";
 export { ReactComponent as GithubIcon } from "./icons/github.svg";
