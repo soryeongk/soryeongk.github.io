@@ -1,13 +1,24 @@
 import styled from "styled-components";
 import { theme } from "styled-tools";
 import { Information, Records } from "../components";
+import Responsive from "components/Responsive";
 
 function Resume() {
   return (
-    <StyledContainer>
-      <Information />
-      <Records />
-    </StyledContainer>
+    <>
+      <Responsive desktop tablet>
+        <StyledContainer>
+          <Information />
+          <Records />
+        </StyledContainer>
+      </Responsive>
+      <Responsive mobile>
+        <StyledMobileContainer>
+          <Information />
+          <Records />
+        </StyledMobileContainer>
+      </Responsive>
+    </>
   );
 }
 
@@ -21,4 +32,10 @@ const StyledContainer = styled.main`
   background-color: ${theme("colors.mainWhite")};
   width: 100vw;
   height: 100vh;
+`;
+
+const StyledMobileContainer = styled(StyledContainer)`
+  flex-direction: column;
+  height: initial;
+  padding: 10rem 0;
 `;

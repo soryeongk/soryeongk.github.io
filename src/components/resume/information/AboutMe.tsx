@@ -43,6 +43,12 @@ const StyledContainer = styled.section`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media ${theme("device.mobile")} {
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+  }
 `;
 
 const StyledProfile = styled.div`
@@ -58,6 +64,11 @@ const StyledProfile = styled.div`
   @media only screen and (max-width: 1920px) {
     width: 30rem;
     height: 45rem;
+  }
+
+  @media ${theme("device.mobile")} {
+    width: 20rem;
+    height: 25rem;
   }
 `;
 
@@ -78,6 +89,10 @@ const StyledTitle = styled.p`
     ${theme("fonts.display")}
     color: ${theme("colors.mainGray")};
   }
+
+  @media ${theme("device.mobile")} {
+    margin-bottom: 3rem;
+  }
 `;
 
 const StyledParag = styled.p`
@@ -86,5 +101,13 @@ const StyledParag = styled.p`
 
   span {
     ${theme("fonts.captionBold")}
+  }
+
+  @media ${theme("device.mobile")} {
+    font-size: 1.5rem;
+
+    span {
+      font-weight: bold;
+    }
   }
 `;

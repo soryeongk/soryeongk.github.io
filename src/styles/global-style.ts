@@ -53,11 +53,11 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  @media only screen and (max-width: 1920px) {
+  /* @media only screen and (max-width: 1920px) {
     html {
       font-size: 7px;
     }
-  }
+  } */
 
   @media only screen and (max-width: 1440px) {
     html {

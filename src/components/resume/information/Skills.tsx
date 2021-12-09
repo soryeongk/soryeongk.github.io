@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { theme } from "styled-tools";
 import { ResumeContent } from "components";
 import { getSkills } from "utils";
+import Responsive from "components/Responsive";
 
 interface SkillData {
   icon: React.FunctionComponent<
@@ -24,15 +25,30 @@ function Skills() {
   }, []);
 
   return (
-    <ResumeContent title="Skills" direction="row">
-      <StyledWrapper>
-        {skillList.map((item, idx) => (
-          <StyledIconWrapper key={`icon-${idx}`} skill={item.skill}>
-            <item.icon />
-          </StyledIconWrapper>
-        ))}
-      </StyledWrapper>
-    </ResumeContent>
+    <>
+      <Responsive desktop tablet>
+        <ResumeContent title="Skills" direction="row">
+          <StyledWrapper>
+            {skillList.map((item, idx) => (
+              <StyledIconWrapper key={`icon-${idx}`} skill={item.skill}>
+                <item.icon />
+              </StyledIconWrapper>
+            ))}
+          </StyledWrapper>
+        </ResumeContent>
+      </Responsive>
+      <Responsive mobile>
+        <ResumeContent title="Skills">
+          <StyledWrapper>
+            {skillList.map((item, idx) => (
+              <StyledIconWrapper key={`icon-${idx}`} skill={item.skill}>
+                <item.icon />
+              </StyledIconWrapper>
+            ))}
+          </StyledWrapper>
+        </ResumeContent>
+      </Responsive>
+    </>
   );
 }
 
@@ -41,6 +57,7 @@ export default Skills;
 const StyledWrapper = styled.div`
   display: flex;
   gap: 5rem;
+  flex-wrap: wrap;
 `;
 
 const StyledIconWrapper = styled.div<{ skill: string }>`

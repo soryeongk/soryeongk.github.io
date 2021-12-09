@@ -41,6 +41,11 @@ export default Connection;
 const StyledContainer = styled.section`
   display: flex;
   justify-content: space-between;
+
+  @media ${theme("device.mobile")} {
+    flex-direction: column;
+    gap: 5rem;
+  }
 `;
 
 export const StyledContent = styled.a`

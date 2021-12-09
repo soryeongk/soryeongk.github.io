@@ -50,6 +50,16 @@ const StyledWrapper = styled.div<{ highlight: boolean }>`
   svg {
     margin-right: 1rem;
   }
+
+  @media ${theme("device.mobile")} {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    svg {
+      display: none;
+    }
+  }
 `;
 
 const StyledDate = styled.span<{ dateWidth: string }>`

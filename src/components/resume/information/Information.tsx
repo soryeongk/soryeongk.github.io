@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AboutMe, Connection, Skills } from "components";
+import { theme } from "styled-tools";
 
 function Information() {
   return (
@@ -18,4 +19,8 @@ export const StyledContainer = styled.section<{ width: string }>`
   flex-direction: column;
   gap: 10rem;
   width: ${(props) => props.width};
+
+  @media ${theme("device.mobile")} {
+    width: 90vw;
+  }
 `;

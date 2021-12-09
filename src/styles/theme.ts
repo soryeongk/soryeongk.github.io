@@ -90,11 +90,11 @@ const colors = {
 
 const deviceSizes = {
   tablet: "768px",
-  mobile: "360px",
+  mobile: "767px",
 };
 
 const device = {
-  mobileS: `only screen and (max-width: ${deviceSizes.mobile})`,
+  mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
   tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
 };
 
