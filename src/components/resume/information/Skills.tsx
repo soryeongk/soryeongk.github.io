@@ -52,7 +52,7 @@ const StyledIconWrapper = styled.div<{ skill: string }>`
   &::after {
     position: absolute;
     content: "${(props) => props.skill}";
-    bottom: -2rem;
+    bottom: -2.5rem;
     ${theme("fonts.caption")}
   }
 `;

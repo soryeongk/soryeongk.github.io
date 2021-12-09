@@ -36,7 +36,7 @@ const StyledTitle = styled.span<{ direction: string }>`
   position: relative;
   ${theme("fonts.title")}
   z-index: 2;
-  padding-top: ${(props) => (props.direction === "row" ? "1.2rem" : "0")};
+  padding-top: ${(props) => (props.direction === "row" ? "3rem" : "0")};
 
   &::after {
     content: ".";
