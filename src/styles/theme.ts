@@ -83,9 +83,9 @@ const colors = {
   dnolBg: "#FBFCFE",
   dnolPoint: "#6BEEFF",
   dnolBlack: "#395D7F",
-  oyBg: "#FAFFF3",
-  oyPoint: "#A6CD48",
-  oyBlack: "#040411",
+  reOlive0Bg: "#FAFFF3",
+  reOlive0Point: "#A6CD48",
+  reOlive0Black: "#040411",
 };
 
 const deviceSizes = {
