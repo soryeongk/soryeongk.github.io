@@ -42,7 +42,6 @@ export default AboutMe;
 const StyledContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  /* gap: 6.2rem; */
   width: 100%;
 `;
 
@@ -55,6 +54,11 @@ const StyledProfile = styled.div`
   background-repeat: no-repeat;
   width: 25rem;
   height: 33.4rem;
+
+  @media only screen and (max-width: 1920px) {
+    width: 30rem;
+    height: 45rem;
+  }
 `;
 
 const StyledWrapper = styled.div`

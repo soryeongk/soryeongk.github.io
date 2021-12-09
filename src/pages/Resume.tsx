@@ -16,10 +16,9 @@ export default Resume;
 const StyledContainer = styled.main`
   display: flex;
   justify-content: center;
-  gap: 8.5rem;
+  gap: 15rem;
   background-color: ${theme("colors.mainWhite")};
-  padding: 14.5rem 10rem 13rem 10rem;
-  flex: 1 1;
+  padding: 12rem 10rem;
   width: 100vw;
   height: 100vh;
 `;

@@ -52,6 +52,12 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
   }
+
+  @media only screen and (max-width: 1920px) {
+    html {
+      font-size: 7px;
+    }
+  }
 `;
 
 export default GlobalStyle;

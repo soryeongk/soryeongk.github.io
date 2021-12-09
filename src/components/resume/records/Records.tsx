@@ -3,7 +3,7 @@ import { StyledContainer } from "../information/Information";
 
 function Records() {
   return (
-    <StyledContainer>
+    <StyledContainer width="80rem">
       <Education />
       <ProjectList />
       <Achievements />
