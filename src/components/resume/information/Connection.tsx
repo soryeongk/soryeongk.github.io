@@ -49,6 +49,8 @@ export const StyledContent = styled.a`
   ${theme("fonts.display")}
 
   svg {
+    width: 2.5rem;
+    height: 2.5rem;
     margin-right: 1rem;
   }
 
