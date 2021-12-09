@@ -42,6 +42,7 @@ interface ConnectionData {
   >;
   connect: string;
   address: string;
+  url?: string;
 }
 
 interface Skill {
@@ -138,8 +139,8 @@ export const CONTACTS: ConnectionData[] = [
 ];
 
 export const CHANNELS: ConnectionData[] = [
-  { id: "channel-01", icon: GithubIcon, connect: "github", address: "@soryeongk | github.com/soryeongk" },
-  { id: "channel-02", icon: VelogIcon, connect: "velog", address: "@soryeongk | velog.io/@soryeongk" },
+  { id: "channel-01", icon: GithubIcon, connect: "github", address: "github.com/soryeongk" },
+  { id: "channel-02", icon: VelogIcon, connect: "velog", address: "velog.io/@soryeongk" },
 ];
 
 export const SKILLS: Skill[] = [

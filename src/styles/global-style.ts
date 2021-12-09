@@ -58,6 +58,12 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 7px;
     }
   }
+
+  @media only screen and (max-width: 1440px) {
+    html {
+      font-size: 6px;
+    }
+  }
 `;
 
 export default GlobalStyle;

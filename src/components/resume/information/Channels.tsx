@@ -5,10 +5,10 @@ function Channels(props: { channelList: ConnectionData[] }) {
   return (
     <ResumeContent title="Channels">
       {props.channelList.map((channel) => (
-        <StyledContent key={channel.id}>
+        <StyledContent href={`https://${channel.address}`} key={channel.id}>
           <channel.icon />
           <span>{channel.connect}</span>
-          {channel.address}
+          @soryeongk | {channel.address}
         </StyledContent>
       ))}
     </ResumeContent>

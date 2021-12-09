@@ -43,7 +43,7 @@ const StyledContainer = styled.section`
   justify-content: space-between;
 `;
 
-export const StyledContent = styled.div`
+export const StyledContent = styled.a`
   display: flex;
   align-items: center;
   ${theme("fonts.display")}
