@@ -15,6 +15,7 @@ interface InfoData {
 }
 
 interface HeaderProps {
+  logo: string[];
   title: string;
   projectName: string;
   pointCol: string;
@@ -23,7 +24,7 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
-  const { title, projectName, pointCol, connectData, infoData } = props;
+  const { logo, title, projectName, pointCol, connectData, infoData } = props;
 
   return (
     <StyledContainer pointCol={pointCol}>
@@ -33,10 +34,10 @@ function Header(props: HeaderProps) {
         ))}
       </ResumeContent>
       <StyledWrapper>
-        <TempIcon />
+        <TempIcon logoImg={logo[0]} href={logo[1]} />
         <StyledConnectionWrapper>
           {connectData.map((connection) => (
-            <StyledConnection href={connection.url} key={`${projectName}: ${connection.id}`}>
+            <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
               {connection.connect}
             </StyledConnection>
           ))}
@@ -49,6 +50,8 @@ function Header(props: HeaderProps) {
 export default Header;
 
 const StyledContainer = styled.header<{ pointCol: string }>`
+  position: sticky;
+  top: 6.5rem;
   display: flex;
   justify-content: space-between;
   border-bottom: 0.2rem solid ${(props) => props.pointCol};
@@ -63,11 +66,14 @@ const StyledWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const TempIcon = styled.div`
+const TempIcon = styled.a<{ logoImg: string }>`
   position: relative;
-  background-color: red;
-  width: 5rem;
-  height: 5rem;
+  background-image: url(${(props) => props.logoImg});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 6rem;
+  height: 6rem;
 
   &::before {
     content: "GitHub";
@@ -83,7 +89,7 @@ const StyledConnectionWrapper = styled.div`
   gap: 3rem;
 `;
 
-const StyledConnection = styled.a`
+const StyledConnection = styled.a<{ pointCol: string }>`
   ${theme("fonts.display")}
 
   & + & {
@@ -94,5 +100,11 @@ const StyledConnection = styled.a`
       left: -1.9rem;
       content: "|";
     }
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: ${(props) => props.pointCol};
   }
 `;

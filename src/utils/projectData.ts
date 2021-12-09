@@ -1,15 +1,19 @@
 import {
   cherishBanner,
   cherishBannerMid,
+  cherishLogo,
   cherishPhoto01,
   colfumeBanner,
+  colfumeLogo,
   colfumePhoto01,
   colfumePhoto02,
   colfumePhoto03,
   dnolBanner,
+  dnolLogo,
   dnolPhoto01,
   reOlive0Banner,
   reOlive0BannerMid,
+  reOlive0Logo,
   reOlive0Photo01,
   reOlive0Photo02,
 } from "assets";
@@ -34,6 +38,7 @@ export interface ProjectContent {
 }
 
 export interface ProjectData {
+  logo: string[];
   title: string;
   textColor: string;
   bgColor: string;
@@ -79,6 +84,11 @@ const CONNECTS: { [projectName: string]: ProjectConnect[] } = {
       id: "cherish-04",
       connect: "iOS 다운로드",
       url: "https://apps.apple.com/kr/app/cherish-%EC%97%B0%EB%9D%BD%EC%9D%84-%EC%9D%B4%EC%96%B4%EA%B0%80%EB%8A%94-%EA%B0%80%EC%9E%A5-%EC%89%AC%EC%9A%B4-%EB%B0%A9%EB%B2%95/id1557601516",
+    },
+    {
+      id: "cherish-05",
+      connect: "MVP 개발 코드",
+      url: "https://github.com/soryeongk/mvp_for_cherish",
     },
   ],
   reOlive0: [
@@ -372,6 +382,7 @@ const PROJECTDATUM: { [projectName: string]: ProjectContent[] } = {
 
 export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   cherish: {
+    logo: [cherishLogo, "https://github.com/TeamCherish"],
     title: "연락을 이어가는 가장 쉬운 방법: Cherish",
     textColor: theme.colors.cherishBlack,
     bgColor: theme.colors.cherishBg,
@@ -381,6 +392,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
     projectDatum: PROJECTDATUM["cherish"],
   },
   reOlive0: {
+    logo: [reOlive0Logo, "https://github.com/Oliveyoung-redesign/HTML-CSS/tree/main/soryeongk"],
     title: "올리브영 홈페이지 리디자인",
     textColor: theme.colors.reOlive0Black,
     bgColor: theme.colors.reOlive0Bg,
@@ -390,6 +402,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
     projectDatum: PROJECTDATUM["reOlive0"],
   },
   colfume: {
+    logo: [colfumeLogo, "https://github.com/mnxmnz/colfume-frontend"],
     title: "색으로 찾는 나만의 향기: Colfume.",
     textColor: theme.colors.colfumeBlack,
     bgColor: theme.colors.colfumeBg,
@@ -399,6 +412,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
     projectDatum: PROJECTDATUM["colfume"],
   },
   dnol: {
+    logo: [dnolLogo, "https://github.com/datayanolja/datayanolja.github.io"],
     title: "색으로 찾는 나만의 향기: dnol.",
     textColor: theme.colors.dnolBlack,
     bgColor: theme.colors.dnolBg,

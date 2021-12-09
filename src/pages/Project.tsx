@@ -8,6 +8,7 @@ import { ProjectConnect, ProjectContent, ProjectInfo } from "utils/projectData";
 function Project() {
   const { pathname } = useLocation();
   const projectName: string = pathname.split("/")[2];
+  const [logo, setLogo] = useState<string[]>([]);
   const [title, setTitle] = useState<string>("");
   const [mainColors, setMainColors] = useState<{ textCol: string; bgCol: string; pointCol: string }>({
     textCol: "",
@@ -21,6 +22,7 @@ function Project() {
   useEffect(() => {
     (async function () {
       const data = await getProjectData(projectName);
+      setLogo(data.logo);
       setTitle(data.title);
       setMainColors({ textCol: data.textColor, bgCol: data.bgColor, pointCol: data.pointColor });
       setConnectList(data.connectData);
@@ -33,6 +35,7 @@ function Project() {
     <StyledContainer textCol={mainColors.textCol} bgCol={mainColors.bgCol}>
       <Header
         projectName={projectName}
+        logo={logo}
         title={title}
         pointCol={mainColors.pointCol}
         connectData={connectList}
