@@ -107,6 +107,7 @@ const StyledParag = styled.p`
     font-size: 1.5rem;
 
     span {
+      font-size: 1.5rem;
       font-weight: bold;
     }
   }
