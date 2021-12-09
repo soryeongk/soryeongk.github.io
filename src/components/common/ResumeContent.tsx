@@ -14,9 +14,9 @@ function ResumeContent(props: ContentProps) {
 
   return (
     <StyledContainer direction={direction}>
-      <StyledTitle direction={direction} hrColor={hrColor}>
+      <StyledTitle direction={direction}>
         {title}
-        <hr />
+        <StyledLine hrColor={hrColor} />
       </StyledTitle>
       <StyledContent direction={direction}>{children}</StyledContent>
     </StyledContainer>
@@ -31,7 +31,7 @@ const StyledContainer = styled.div<{ direction: string }>`
   justify-content: ${(props) => (props.direction === "row" ? "space-between" : "initial")};
 `;
 
-const StyledTitle = styled.span<{ direction: string; hrColor?: string }>`
+const StyledTitle = styled.span<{ direction: string }>`
   width: fit-content;
   position: relative;
   ${theme("fonts.title")}
@@ -42,17 +42,17 @@ const StyledTitle = styled.span<{ direction: string; hrColor?: string }>`
     content: ".";
     color: ${theme("colors.mainWhite")};
   }
+`;
 
-  hr {
-    position: absolute;
-    bottom: 0.3rem;
-    z-index: -1;
-    margin: 0;
-    border: 0;
-    background-color: ${(props) => (props.hrColor ? props.hrColor : theme("colors.mainPoint"))};
-    width: 100%;
-    height: 0.5rem;
-  }
+export const StyledLine = styled.hr<{ hrColor?: string }>`
+  position: absolute;
+  bottom: 0.3rem;
+  z-index: -1;
+  margin: 0;
+  border: 0;
+  background-color: ${(props) => (props.hrColor ? props.hrColor : theme("colors.mainPoint"))};
+  width: 100%;
+  height: 0.5rem;
 `;
 
 const StyledContent = styled.div<{ direction: string }>`

@@ -1,4 +1,9 @@
-import { ACHIEVES, CHANNELS, CONTACTS, EDULIST, PROJECTS, SKILLS } from "./data";
+import { ProjectData, PROJECTDATA } from "./projectData";
+import { ACHIEVES, CHANNELS, CONTACTS, EDULIST, PROJECTS, SKILLS } from "./resumeData";
+
+interface ProjectFunc {
+  (arg: string): ProjectData;
+}
 
 export const getProjectList = async () => {
   return PROJECTS;
@@ -22,4 +27,8 @@ export const getChannels = async () => {
 
 export const getSkills = async () => {
   return SKILLS;
+};
+
+export const getProjectData: ProjectFunc = function (arg: string) {
+  return PROJECTDATA[arg];
 };

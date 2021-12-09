@@ -76,7 +76,7 @@ const colors = {
   mainPoint: "#FFB800",
   cherishBlack: "#535353",
   cherishPoint: "#31D692",
-  cherishWhite: "#F8F8F8",
+  cherishBg: "#F8F8F8",
   colfumeBlack: "#3E3E3E",
   colfumePoint: "#FFFFFF",
   colfumeBg: "#F8EFDD",
