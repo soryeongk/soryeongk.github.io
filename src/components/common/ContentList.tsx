@@ -39,8 +39,11 @@ const StyledWrapper = styled.div<{ highlight: boolean }>`
   ${ifProp(
     { highlight: true },
     css`
-      ${theme("fonts.displayBold")}
       cursor: pointer;
+
+      &:hover {
+        ${theme("fonts.displayBold")}
+      }
     `,
     css`
       ${theme("fonts.display")}
