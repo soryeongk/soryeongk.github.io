@@ -4,13 +4,20 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { getProjectData } from "utils";
 import { ProjectConnect, ProjectContent, ProjectInfo } from "utils/projectData";
+import { theme } from "styled-tools";
+
+interface ProjectColors {
+  textCol: string;
+  bgCol: string;
+  pointCol: string;
+}
 
 function Project() {
   const { pathname } = useLocation();
   const projectName: string = pathname.split("/")[2];
   const [logo, setLogo] = useState<string[]>([]);
   const [title, setTitle] = useState<string>("");
-  const [mainColors, setMainColors] = useState<{ textCol: string; bgCol: string; pointCol: string }>({
+  const [mainColors, setMainColors] = useState<ProjectColors>({
     textCol: "",
     bgCol: "",
     pointCol: "",
@@ -56,4 +63,8 @@ const StyledContainer = styled.main<{ textCol: string; bgCol: string }>`
   padding: 6.5rem 11.5rem;
   padding-bottom: 15rem;
   color: ${(props) => props.textCol};
+
+  @media ${theme("device.mobile")} {
+    padding: 2rem;
+  }
 `;
