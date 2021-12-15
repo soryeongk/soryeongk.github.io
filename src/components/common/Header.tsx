@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ContentList, ResumeContent } from "components";
 import { theme } from "styled-tools";
+import Responsive from "components/Responsive";
 
 interface ConnectData {
   id: string;
@@ -33,16 +34,31 @@ function Header(props: HeaderProps) {
           <ContentList key={idx} date={info.head} dateWidth={info.width} content={info.content} />
         ))}
       </ResumeContent>
-      <StyledWrapper>
-        <TempIcon logoImg={logo[0]} href={logo[1]} />
-        <StyledConnectionWrapper>
-          {connectData.map((connection) => (
-            <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
-              {connection.connect}
-            </StyledConnection>
-          ))}
-        </StyledConnectionWrapper>
-      </StyledWrapper>
+      <Responsive desktop tablet>
+        <StyledWrapper>
+          <StyledIcon logoImg={logo[0]} href={logo[1]} />
+          <StyledConnectionWrapper>
+            {connectData.map((connection) => (
+              <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
+                {connection.connect}
+              </StyledConnection>
+            ))}
+          </StyledConnectionWrapper>
+        </StyledWrapper>
+      </Responsive>
+
+      <Responsive mobile>
+        <StyledWrapper>
+          <StyledIcon logoImg={logo[0]} href={logo[1]} />
+          <StyledConnectionWrapper>
+            {connectData.map((connection) => (
+              <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
+                {connection.connect}
+              </StyledConnection>
+            ))}
+          </StyledConnectionWrapper>
+        </StyledWrapper>
+      </Responsive>
     </StyledContainer>
   );
 }
@@ -56,7 +72,11 @@ const StyledContainer = styled.header<{ pointCol: string }>`
   justify-content: space-between;
   border-bottom: 0.2rem solid ${(props) => props.pointCol};
   padding-bottom: 4rem;
-  width: 169rem;
+  width: 100%;
+
+  @media ${theme("device.mobile")} {
+    flex-direction: column;
+  }
 `;
 
 const StyledWrapper = styled.div`
@@ -64,9 +84,13 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+
+  @media ${theme("device.mobile")} {
+    flex-direction: row;
+  }
 `;
 
-const TempIcon = styled.a<{ logoImg: string }>`
+const StyledIcon = styled.a<{ logoImg: string }>`
   position: relative;
   background-image: url(${(props) => props.logoImg});
   background-size: contain;
@@ -81,12 +105,24 @@ const TempIcon = styled.a<{ logoImg: string }>`
     top: -1.5rem;
     left: 8%;
   }
+
+  @media ${theme("device.mobile")} {
+    &::before {
+      display: none;
+    }
+  }
 `;
 
 const StyledConnectionWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 3rem;
+
+  @media ${theme("device.mobile")} {
+    width: 40rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 `;
 
 const StyledConnection = styled.a<{ pointCol: string }>`
@@ -96,9 +132,9 @@ const StyledConnection = styled.a<{ pointCol: string }>`
     position: relative;
 
     &::before {
+      content: "|";
       position: absolute;
       left: -1.9rem;
-      content: "|";
     }
   }
 
@@ -106,5 +142,17 @@ const StyledConnection = styled.a<{ pointCol: string }>`
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-color: ${(props) => props.pointCol};
+  }
+
+  @media ${theme("device.mobile")} {
+    & + & {
+      &::before {
+        display: none;
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
