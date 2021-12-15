@@ -31,7 +31,7 @@ const StyledContainer = styled.div<{ direction: string }>`
   justify-content: ${(props) => (props.direction === "row" ? "space-between" : "initial")};
 `;
 
-const StyledTitle = styled.span<{ direction: string }>`
+export const StyledTitle = styled.span<{ direction: string }>`
   width: fit-content;
   position: relative;
   ${theme("fonts.title")}
@@ -64,5 +64,10 @@ const StyledContent = styled.div<{ direction: string }>`
 
   span {
     ${theme("fonts.display")}
+  }
+
+  @media ${theme("device.mobile")} {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 `;
