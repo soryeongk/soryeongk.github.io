@@ -9,6 +9,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  ::selection {
+    background-color: ${theme("colors.mainPoint")};
+    color: ${theme("colors.mainWhite")};
+  }
+
   @font-face {
     font-family: "NanumMyeongjo";
     font-weight: normal;
