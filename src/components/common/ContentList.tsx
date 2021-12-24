@@ -40,6 +40,7 @@ const StyledWrapper = styled.div<{ highlight: boolean }>`
     { highlight: true },
     css`
       cursor: pointer;
+      color: ${theme("colors.mainPoint")};
 
       &:hover {
         ${theme("fonts.displayBold")}
