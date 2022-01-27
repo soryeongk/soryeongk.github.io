@@ -40,7 +40,7 @@ export const StyledTitle = styled.span<{ direction: string }>`
 
   &::after {
     content: ".";
-    color: ${theme("colors.mainWhite")};
+    /* color: ${theme("colors.mainWhite")}; */
   }
 `;
 

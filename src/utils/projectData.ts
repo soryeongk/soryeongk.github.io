@@ -476,7 +476,7 @@ const PROJECTDATUM: { [projectName: string]: ProjectContent[] } = {
 export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   cherish: {
     logo: [cherishLogo, "https://github.com/TeamCherish"],
-    title: "연락을 이어가는 가장 쉬운 방법: Cherish.",
+    title: "연락을 이어가는 가장 쉬운 방법: Cherish",
     textColor: theme.colors.cherishBlack,
     bgColor: theme.colors.cherishBg,
     pointColor: theme.colors.cherishPoint,
@@ -486,7 +486,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   reOlive0: {
     logo: [reOlive0Logo, "https://github.com/Oliveyoung-redesign/HTML-CSS/tree/main/soryeongk"],
-    title: "올리브영 홈페이지 리디자인.",
+    title: "올리브영 홈페이지 리디자인",
     textColor: theme.colors.reOlive0Black,
     bgColor: theme.colors.reOlive0Bg,
     pointColor: theme.colors.reOlive0Point,
@@ -496,7 +496,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   colfume: {
     logo: [colfumeLogo, "https://github.com/mnxmnz/colfume-frontend"],
-    title: "색으로 찾는 나만의 향기: Colfume.",
+    title: "색으로 찾는 나만의 향기: Colfume",
     textColor: theme.colors.colfumeBlack,
     bgColor: theme.colors.colfumeBg,
     pointColor: theme.colors.colfumePoint,
@@ -506,7 +506,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   dnol: {
     logo: [dnolLogo, "https://github.com/datayanolja/datayanolja.github.io"],
-    title: "데이터야놀자2020: 웰컴투데놀랜드.",
+    title: "데이터야놀자2020: 웰컴투데놀랜드",
     textColor: theme.colors.dnolBlack,
     bgColor: theme.colors.dnolBg,
     pointColor: theme.colors.dnolPoint,
