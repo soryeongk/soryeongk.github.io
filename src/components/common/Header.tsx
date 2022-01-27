@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ContentList, ResumeContent } from "components";
 import { theme } from "styled-tools";
-import Responsive from "components/Responsive";
 
 interface ConnectData {
   id: string;
@@ -34,31 +33,17 @@ function Header(props: HeaderProps) {
           <ContentList key={idx} date={info.head} dateWidth={info.width} content={info.content} />
         ))}
       </ResumeContent>
-      <Responsive desktop tablet>
-        <StyledWrapper>
-          <StyledIcon logoImg={logo[0]} href={logo[1]} />
-          <StyledConnectionWrapper>
-            {connectData.map((connection) => (
-              <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
-                {connection.connect}
-              </StyledConnection>
-            ))}
-          </StyledConnectionWrapper>
-        </StyledWrapper>
-      </Responsive>
 
-      <Responsive mobile>
-        <StyledWrapper>
-          <StyledIcon logoImg={logo[0]} href={logo[1]} />
-          <StyledConnectionWrapper>
-            {connectData.map((connection) => (
-              <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
-                {connection.connect}
-              </StyledConnection>
-            ))}
-          </StyledConnectionWrapper>
-        </StyledWrapper>
-      </Responsive>
+      <StyledWrapper>
+        <StyledIcon logoImg={logo[0]} href={logo[1]} />
+        <StyledConnectionWrapper>
+          {connectData.map((connection) => (
+            <StyledConnection pointCol={pointCol} href={connection.url} key={`${projectName}: ${connection.id}`}>
+              {connection.connect}
+            </StyledConnection>
+          ))}
+        </StyledConnectionWrapper>
+      </StyledWrapper>
     </StyledContainer>
   );
 }

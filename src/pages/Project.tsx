@@ -67,9 +67,4 @@ const StyledContainer = styled.main<{ textCol: string; bgCol: string }>`
   @media ${theme("device.mobile")} {
     padding: 2rem;
   }
-
-  &::selection {
-    background-color: ${(props) => props.textCol};
-    color: ${(props) => props.bgCol};
-  }
 `;

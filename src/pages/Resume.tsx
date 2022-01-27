@@ -1,24 +1,13 @@
 import styled from "styled-components";
 import { theme } from "styled-tools";
 import { Information, Records } from "../components";
-import Responsive from "components/Responsive";
 
 function Resume() {
   return (
-    <>
-      <Responsive desktop tablet>
-        <StyledContainer>
-          <Information />
-          <Records />
-        </StyledContainer>
-      </Responsive>
-      <Responsive mobile>
-        <StyledMobileContainer>
-          <Information />
-          <Records />
-        </StyledMobileContainer>
-      </Responsive>
-    </>
+    <StyledContainer>
+      <Information />
+      <Records />
+    </StyledContainer>
   );
 }
 
@@ -33,14 +22,8 @@ const StyledContainer = styled.main`
   width: 100vw;
   height: 100vh;
 
-  &::selection {
+  & > *::selection {
     background-color: ${theme("colors.mainPoint")};
     color: ${theme("colors.mainWhite")};
   }
-`;
-
-const StyledMobileContainer = styled(StyledContainer)`
-  flex-direction: column;
-  height: initial;
-  padding: 10rem 0;
 `;
