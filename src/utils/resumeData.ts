@@ -135,7 +135,7 @@ export const EDULIST: Edu[] = [
 ];
 
 export const ACHIEVES: Achieve[] = [
-  { id: "북스테어즈", date: "2021.07.17", content: "SOPT 28th APP-JAM 최우수상 - 북스테어즈" },
+  { id: "북스테어즈", date: "2022.01.22", content: "SOPT 28th APP-JAM 최우수상 - 북스테어즈" },
   { id: "colfume", date: "2021.07.17", content: "SOPT 28th APP-JAM 대상 - Colfume" },
   { id: "cherish", date: "2021.01.16", content: "SOPT 27th APP-JAM 최우수상 - Cherish" },
   { id: "JLPT N2", date: "2019.02", content: "JLPT N2 취득" },
