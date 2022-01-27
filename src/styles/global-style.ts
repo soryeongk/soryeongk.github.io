@@ -9,11 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ::selection {
-    background-color: ${theme("colors.mainPoint")};
-    color: ${theme("colors.mainWhite")};
-  }
-
   @font-face {
     font-family: "NanumMyeongjo";
     font-weight: normal;
@@ -48,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input, button {
     outline: none; 
-    border: none;
+    border: black;
     background-color: transparent;                                                                                                                                                                        
   }
 

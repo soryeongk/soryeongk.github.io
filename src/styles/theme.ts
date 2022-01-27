@@ -86,6 +86,9 @@ const colors = {
   reOlive0Bg: "#FAFFF3",
   reOlive0Point: "#A6CD48",
   reOlive0Black: "#040411",
+  bookTezBlack: "#3D3D3D",
+  bookTezBg: "#F7F7F7",
+  bookTezPoint: "#FF4C00",
 };
 
 const deviceSizes = {

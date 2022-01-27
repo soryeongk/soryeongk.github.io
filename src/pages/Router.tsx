@@ -1,4 +1,4 @@
-import { Project, Resume } from "pages";
+import { Project, Resume, Error } from "pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Router = () => {
@@ -6,6 +6,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Resume />} />
+        <Route path="/error" element={<Error />} />
         <Route path="/project/*" element={<Project />} />
       </Routes>
     </BrowserRouter>

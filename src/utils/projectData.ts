@@ -1,4 +1,6 @@
 import {
+  bookTezLogo,
+  bookTezPhoto01,
   cherishBanner,
   cherishBannerMid,
   cherishLogo,
@@ -59,11 +61,15 @@ const INFOS: { [projectName: string]: ProjectInfo[] } = {
   ],
   colfume: [
     { head: "주요 역할", width: "fit-content", content: "프론트엔드 개발자" },
-    { head: "사용 기술", width: "fit-content", content: "TypeScript, React: Next.js, SWR, styled-components, Recoil" },
+    { head: "사용 기술", width: "fit-content", content: "Next.js, TypeScript, SWR, styled-components, Recoil" },
   ],
   dnol: [
     { head: "주요 역할", width: "fit-content", content: "프론트엔드 개발자" },
     { head: "사용 기술", width: "fit-content", content: "React" },
+  ],
+  bookTez: [
+    { head: "주요 역할", width: "fit-content", content: "프론트엔드 개발자" },
+    { head: "사용 기술", width: "fit-content", content: "React, TypeScript, Styled-components" },
   ],
 };
 
@@ -113,6 +119,13 @@ const CONNECTS: { [projectName: string]: ProjectConnect[] } = {
       url: "https://datayanolja.kr/",
     },
     { id: "dnol-02", connect: "데이터야놀자2020 홈페이지", url: "https://datayanolja.github.io/" },
+  ],
+  bookTez: [
+    {
+      id: "bookTez-01",
+      connect: "북스테어즈 홈페이지",
+      url: "https://book-stairs.com/",
+    },
   ],
 };
 
@@ -378,12 +391,90 @@ const PROJECTDATUM: { [projectName: string]: ProjectContent[] } = {
         "데이터야놀자 준비위원회는 모두 자발적 의지로 모인 사람들입니다. 소위 말하는 “부캐”로서 참여하기 때문에 본업과 행사 준비를 병행합니다. 데이터야놀자의 모든 의사결정은 회의를 통해 결정되며, 모두가 동등한 위치에서 의견을 냅니다. 때문에 구성원의 그 누구도 타인의 일정을 강제할 수 없습니다. 일정에 차질이 없도록 하기 위해서는 팀원들과 원활하게 소통하는 것이 매우 중요했습니다. 멋진 결과물을 만드는 것만큼 행사 준비를 즐길 수 있는 방법에 대해 오랜 시간 회의했습니다. 부드러운 화법을 사용하되, 정확한 커뮤니케이션하는 것, 짧지만 자주 회의하는 것을 개발팀의 규칙으로 정했습니다. 그럼에도 불구하고 중도 하차를 고민하는 팀원과 개발을 따라오지 못하는 팀원이 존재했고, 저역시 처음 배우는 언어와 기술에 리액트를 제대로 활용하지는 못했다고 생각합니다. 하지만, 당시 끝까지 함께 했던 팀원들과 지금까지 좋은 관계를 유지하고 있다는 점에서 성공적인 프로젝트였다고 생각합니다.",
     },
   ],
+  bookTez: [
+    { type: "banner", context: bookTezPhoto01, margin: "4rem" },
+    { type: "subTitle", context: "진짜 독서가들을 위한 독서법" },
+    {
+      type: "paragraph",
+      context:
+        "책에서 쏟아지는 지식을 온전히 내 것으로 만드는 것은 결코 쉬운 일이 아닙니다. 책을 읽으면서 메모를 하더라도 시간 대비 효율이 좋지 못하다는 느낌을 받을 때가 있습니다. 북스테어즈는 이러한 독서에 대한 부담은 덜고, 누구나 쉽게 책을 읽고 성장할 수 있도록 도와주는 서비스입니다. 책을 읽는 목적을 명확하게 하고, 체계적으로 내용을 정리하면서 독서를 이어갈 수 있도록 합니다.",
+      margin: "10rem",
+    },
+    { type: "img", context: bookTezPhoto01, margin: "10rem" },
+    { type: "title", context: "프론트엔드 리드 개발자로서 지키고 싶었던 것", margin: "2rem" },
+    {
+      type: "paragraph",
+      context:
+        "좋은 기회로 우수한 동료들과 함께 협업할 수 있는 기회를 얻었습니다. 팀 북스테어즈 프론트엔드 파트에서 꼭 지키고 싶었던 두 가지가 있었습니다.",
+      margin: "1rem",
+    },
+    { type: "subTitle", context: "기획과 디자인에 타협하지 않는 개발을 하자." },
+    {
+      type: "paragraph",
+      context:
+        "“구현할 수 없는 디자인은 없다”는 것을 팀원 모두가 상기하며, 주어진 시간(3주) 내에 가능한 기능은 모두 구현하고자 했습니다. 동시에, 탄탄한 기획을 고민하면서 개발팀에서 아이디어를 제안하기도 했습니다. 유저의 입장에서 먼저 고민하고, 사용하는 기술 하나 하나 짚어보면서 개발에서의 타당성을 명확하게 하고자 노력했습니다.",
+      margin: "1rem",
+    },
+    { type: "subTitle", context: "덜 지치게, 꾸준하게 함께 성장하자." },
+    {
+      type: "paragraph",
+      context:
+        "단순히 완성을 목표로 하는 것이 아니라 얼마나 더 성장할 수 있을까를 팀의 core value로 정했습니다. 매일 코드리뷰와 회고를 진행하면서, 모두가 서로의 코드를 이해할 수 있도록 하고, 꾸준히 자신을 돌아보는 시간을 가졌습니다. 덕분에 다른 파트와의 소통에서 담당자를 찾을 필요 없이 누구나 요청에 응할 수 있었고, 매일 주고 받는 피드백은 서로에게 좋은 동기부여가 되었습니다. 각자가 공부해보고 싶은 것, 해보고 싶은 기능이 있다면 믿고 맡겼고, 질문에 대해서는 언제나 적극적으로 서로 공유하는 분위기를 가져간 것도 성장의 좋은 밑거름이 되었다고 생각합니다.",
+    },
+    { type: "title", context: "북스테어즈 프론트엔드팀의 주요 스킬", margin: "2rem" },
+    {
+      type: "paragraph",
+      context:
+        "최소한 기술로 번들 사이즈를 줄이고, 정말 필요하다고 생각하는 것만, 그 중에서도 리액트스러운 라이브러리를 골라 더 잘 활용하는 것에 집중했습니다.",
+      margin: "10rem",
+    },
+    { type: "subTitle", context: "TypeScript" },
+    {
+      type: "paragraph",
+      context:
+        "타입스크립트를 사용하는 여러 이유(디버깅, 에러 예방, 자동완성 등)가 있지만, 북스테어즈에서 더 중요하게 생각했던 것은 “서로의 코드를 이해하는 것”이었습니다. 이를 위해서 컨벤션을 꼼꼼하게 정하는 것뿐 아니라 TypeScript를 사용하는 것도 큰 도움이 된다고 생각했습니다. TypeScript가 처음인 팀원이 많아 프로젝트 시작 전부터 쭉 스터디를 진행하면서 함께 공부하면서 적용했습니다.",
+      margin: "1rem",
+    },
+    { type: "subTitle", context: "웹 표준과 웹 접근성" },
+    {
+      type: "paragraph",
+      context:
+        "시멘틱 태그의 중요성에 대해 자주 잊곤 합니다. SEO 장악만큼이나 진정한 웹 접근성을 고민하면서 개발을 해보고 싶었습니다. html 태그 하나 하나 함께 고민하고, 토론하면서 설계했습니다. 기획팀과 meta 태그를 함께 논의했고, 현재는 리팩토링과 함께 검색 엔진 노출에 더 적합하도록 Next.js로의 전환을 준비하고 있습니다.",
+      margin: "1rem",
+    },
+    { type: "subTitle", context: "styled-components" },
+    {
+      type: "paragraph",
+      context:
+        "globalStyle적용과 theme Provider를 적극적으로 사용하기 위해서 Styled-components를 선정했습니다. 팀원들 모두 기본적으로 사용하고 있던 라이브러리였기에 이번 프로젝트에서는 컴포넌트의 재사용을 더 활용해보고자 노력했습니다. 또한, className 사용을 지양하고 props 전달로 관리하는 것을 연습했습니다.",
+      margin: "1rem",
+    },
+    { type: "subTitle", context: "ESLint" },
+    {
+      type: "paragraph",
+      context:
+        "더 정확한 컨벤션을 strict하게 지키기 위함도 있지만, ESLint를 한 번즈음 모두가 공부해봤으면 좋겠다는 생각으로 ESLint 설정도 모두의 의견을 반영해 함께 했습니다. 우리 팀에 필요한 컨벤션, 가독성 좋은 코드를 위한 규칙들을 선정하면서 각자의 코드 스타일을 이야기해볼 수도 있었습니다. 동시에, 너무 strict한 규칙이 오히려 발목을 잡을 수도 있다는 것을 배웠습니다 .정말 필요한 규칙들만을 선정해서 적절한게 가져가는 것도 중요하다고 생각했습니다.",
+      margin: "10rem",
+    },
+    { type: "title", context: "앞으로의 일정", margin: "2rem" },
+    {
+      type: "paragraph",
+      context:
+        "팀 북스테어즈는 사용자 경험을 중시하며 개발을 이어갈 것입니다. 버벅거림과 Flash 현상을 최소화할 수 있도록 성능 최적화와 리팩토링을 시작했고, 검색엔진 최적화를 위한 Next.js로의 전환을 준비하고 있습니다.",
+      margin: "1rem",
+    },
+    {
+      type: "paragraph",
+      context:
+        "빠르게 목표를 내기 보다는 모두가 덜 지치고 꾸준하게 함께 할 수 있는 방법을 생각하며 지금까지의 협업 방식에서 크게 벗어나지 않을 것입니다. 좋은 동료들과 함께 성장하면서 더 단단한 북스테어즈가 되는 것을 제 1의 가치로 가져갈 생각입니다.",
+    },
+  ],
 };
 
 export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   cherish: {
     logo: [cherishLogo, "https://github.com/TeamCherish"],
-    title: "연락을 이어가는 가장 쉬운 방법: Cherish",
+    title: "연락을 이어가는 가장 쉬운 방법: Cherish.",
     textColor: theme.colors.cherishBlack,
     bgColor: theme.colors.cherishBg,
     pointColor: theme.colors.cherishPoint,
@@ -393,7 +484,7 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   reOlive0: {
     logo: [reOlive0Logo, "https://github.com/Oliveyoung-redesign/HTML-CSS/tree/main/soryeongk"],
-    title: "올리브영 홈페이지 리디자인",
+    title: "올리브영 홈페이지 리디자인.",
     textColor: theme.colors.reOlive0Black,
     bgColor: theme.colors.reOlive0Bg,
     pointColor: theme.colors.reOlive0Point,
@@ -413,10 +504,20 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   dnol: {
     logo: [dnolLogo, "https://github.com/datayanolja/datayanolja.github.io"],
-    title: "색으로 찾는 나만의 향기: dnol.",
+    title: "데이터야놀자2020: 웰컴투데놀랜드.",
     textColor: theme.colors.dnolBlack,
     bgColor: theme.colors.dnolBg,
     pointColor: theme.colors.dnolPoint,
+    infoData: INFOS["dnol"],
+    connectData: CONNECTS["dnol"],
+    projectDatum: PROJECTDATUM["dnol"],
+  },
+  bookTez: {
+    logo: [bookTezLogo, "https://github.com/TeamBookTez/booktez-client"],
+    title: "색으로 찾는 나만의 향기: dnol.",
+    textColor: theme.colors.bookTezBlack,
+    bgColor: theme.colors.bookTezBg,
+    pointColor: theme.colors.bookTezPoint,
     infoData: INFOS["dnol"],
     connectData: CONNECTS["dnol"],
     projectDatum: PROJECTDATUM["dnol"],

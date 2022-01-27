@@ -32,6 +32,11 @@ const StyledContainer = styled.main`
   background-color: ${theme("colors.mainWhite")};
   width: 100vw;
   height: 100vh;
+
+  &::selection {
+    background-color: ${theme("colors.mainPoint")};
+    color: ${theme("colors.mainWhite")};
+  }
 `;
 
 const StyledMobileContainer = styled(StyledContainer)`
