@@ -16,7 +16,7 @@ function Education() {
       const data = await getEduList();
       setEduList(data);
     })();
-  });
+  }, []);
 
   return (
     <ResumeContent title="Education">

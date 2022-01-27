@@ -16,7 +16,7 @@ function Achievements() {
       const data = await getAchieveList();
       setAchieveList(data);
     })();
-  });
+  }, []);
   return (
     <ResumeContent title="Achievements">
       {achieveList.map((achieve) => (

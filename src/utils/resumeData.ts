@@ -56,63 +56,70 @@ interface Skill {
 
 export const PROJECTS: Project[] = [
   {
-    id: "project-01",
+    id: "bookTez",
+    date: "2021.01.02 ~ now",
+    projectName: "bookTez",
+    content: "[FrontEnd] 진짜 독서가들을 위한 독서법: 북스테어즈",
+    highlight: true,
+  },
+  {
+    id: "cherish",
     date: "2020.12.12 ~ now",
     projectName: "cherish",
     content: "[기획] 당신의 소중한 사람을 위한 연락관리 서비스: Cherish",
     highlight: true,
   },
   {
-    id: "project-02",
+    id: "dibker",
     date: "2020.11.21 ~ now",
     projectName: "dibker",
     content: "[PM] 의류 공유 서비스: dibker",
     highlight: false,
   },
   {
-    id: "project-03",
+    id: "ddowaddo",
     date: "2020.06.27 ~ now",
     projectName: "ddowaddo",
     content: "[개인 특허 출원] QR코드 연동 고객 관리 플랫폼 시스템: 또와또",
     highlight: false,
   },
   {
-    id: "project-04",
+    id: "reBrunch",
     date: "2021.11.13 ~ 12.05",
     projectName: "reBrunch",
     content: "[FrontEnd] bunch 홈페이지 리디자인",
     highlight: false,
   },
   {
-    id: "project-05",
+    id: "reOlive0",
     date: "2021.09.28 ~ 10.31",
     projectName: "reOlive0",
     content: "[Design & FrontEnd] 올리브영 메인 페이지 리디자인",
     highlight: true,
   },
   {
-    id: "project-06",
+    id: "colfume",
     date: "2021.06.26 ~ 08.31",
     projectName: "colfume",
     content: "[FrontEnd] 색으로 찾는 나만의 향기: Colfume",
     highlight: true,
   },
   {
-    id: "project-07",
+    id: "reNaver",
     date: "2021.05.22 ~ 06.11",
     projectName: "reNaver",
     content: "[FrontEnd] 네이버 홈페이지 리디자인",
     highlight: false,
   },
   {
-    id: "project-08",
+    id: "fishing",
     date: "2021.11.21 ~ 11.22",
     projectName: "fishing",
     content: "[PM] 일중독에서 벗어날 휴식 레퍼런스: FISHING",
     highlight: false,
   },
   {
-    id: "project-09",
+    id: "dnol",
     date: "2020.08.31 ~ 10.17",
     projectName: "dnol",
     content: "[FrontEnd] 데이터야놀자2020 홈페이지",
@@ -128,9 +135,10 @@ export const EDULIST: Edu[] = [
 ];
 
 export const ACHIEVES: Achieve[] = [
-  { id: "achieve-01", date: "2021.07.17", content: "SOPT 28th APP-JAM 대상 - Colfume" },
-  { id: "achieve-02", date: "2021.01.16", content: "SOPT 27th APP-JAM 최우수상 - Cherish" },
-  { id: "achieve-03", date: "2019.02", content: "JLPT N2 취득" },
+  { id: "북스테어즈", date: "2021.07.17", content: "SOPT 28th APP-JAM 최우수상 - 북스테어즈" },
+  { id: "colfume", date: "2021.07.17", content: "SOPT 28th APP-JAM 대상 - Colfume" },
+  { id: "cherish", date: "2021.01.16", content: "SOPT 27th APP-JAM 최우수상 - Cherish" },
+  { id: "JLPT N2", date: "2019.02", content: "JLPT N2 취득" },
 ];
 
 export const CONTACTS: ConnectionData[] = [

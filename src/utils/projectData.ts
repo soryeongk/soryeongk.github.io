@@ -1,6 +1,7 @@
 import {
   bookTezLogo,
   bookTezPhoto01,
+  bookTezPhoto02,
   cherishBanner,
   cherishBannerMid,
   cherishLogo,
@@ -400,7 +401,7 @@ const PROJECTDATUM: { [projectName: string]: ProjectContent[] } = {
         "책에서 쏟아지는 지식을 온전히 내 것으로 만드는 것은 결코 쉬운 일이 아닙니다. 책을 읽으면서 메모를 하더라도 시간 대비 효율이 좋지 못하다는 느낌을 받을 때가 있습니다. 북스테어즈는 이러한 독서에 대한 부담은 덜고, 누구나 쉽게 책을 읽고 성장할 수 있도록 도와주는 서비스입니다. 책을 읽는 목적을 명확하게 하고, 체계적으로 내용을 정리하면서 독서를 이어갈 수 있도록 합니다.",
       margin: "10rem",
     },
-    { type: "img", context: bookTezPhoto01, margin: "10rem" },
+    { type: "banner", context: bookTezPhoto02, margin: "10rem" },
     { type: "title", context: "프론트엔드 리드 개발자로서 지키고 싶었던 것", margin: "2rem" },
     {
       type: "paragraph",
@@ -420,34 +421,35 @@ const PROJECTDATUM: { [projectName: string]: ProjectContent[] } = {
       type: "paragraph",
       context:
         "단순히 완성을 목표로 하는 것이 아니라 얼마나 더 성장할 수 있을까를 팀의 core value로 정했습니다. 매일 코드리뷰와 회고를 진행하면서, 모두가 서로의 코드를 이해할 수 있도록 하고, 꾸준히 자신을 돌아보는 시간을 가졌습니다. 덕분에 다른 파트와의 소통에서 담당자를 찾을 필요 없이 누구나 요청에 응할 수 있었고, 매일 주고 받는 피드백은 서로에게 좋은 동기부여가 되었습니다. 각자가 공부해보고 싶은 것, 해보고 싶은 기능이 있다면 믿고 맡겼고, 질문에 대해서는 언제나 적극적으로 서로 공유하는 분위기를 가져간 것도 성장의 좋은 밑거름이 되었다고 생각합니다.",
+      margin: "10rem",
     },
     { type: "title", context: "북스테어즈 프론트엔드팀의 주요 스킬", margin: "2rem" },
     {
       type: "paragraph",
       context:
         "최소한 기술로 번들 사이즈를 줄이고, 정말 필요하다고 생각하는 것만, 그 중에서도 리액트스러운 라이브러리를 골라 더 잘 활용하는 것에 집중했습니다.",
-      margin: "10rem",
+      margin: "2rem",
     },
     { type: "subTitle", context: "TypeScript" },
     {
       type: "paragraph",
       context:
         "타입스크립트를 사용하는 여러 이유(디버깅, 에러 예방, 자동완성 등)가 있지만, 북스테어즈에서 더 중요하게 생각했던 것은 “서로의 코드를 이해하는 것”이었습니다. 이를 위해서 컨벤션을 꼼꼼하게 정하는 것뿐 아니라 TypeScript를 사용하는 것도 큰 도움이 된다고 생각했습니다. TypeScript가 처음인 팀원이 많아 프로젝트 시작 전부터 쭉 스터디를 진행하면서 함께 공부하면서 적용했습니다.",
-      margin: "1rem",
+      margin: "2rem",
     },
     { type: "subTitle", context: "웹 표준과 웹 접근성" },
     {
       type: "paragraph",
       context:
         "시멘틱 태그의 중요성에 대해 자주 잊곤 합니다. SEO 장악만큼이나 진정한 웹 접근성을 고민하면서 개발을 해보고 싶었습니다. html 태그 하나 하나 함께 고민하고, 토론하면서 설계했습니다. 기획팀과 meta 태그를 함께 논의했고, 현재는 리팩토링과 함께 검색 엔진 노출에 더 적합하도록 Next.js로의 전환을 준비하고 있습니다.",
-      margin: "1rem",
+      margin: "2rem",
     },
     { type: "subTitle", context: "styled-components" },
     {
       type: "paragraph",
       context:
         "globalStyle적용과 theme Provider를 적극적으로 사용하기 위해서 Styled-components를 선정했습니다. 팀원들 모두 기본적으로 사용하고 있던 라이브러리였기에 이번 프로젝트에서는 컴포넌트의 재사용을 더 활용해보고자 노력했습니다. 또한, className 사용을 지양하고 props 전달로 관리하는 것을 연습했습니다.",
-      margin: "1rem",
+      margin: "2rem",
     },
     { type: "subTitle", context: "ESLint" },
     {
@@ -514,12 +516,12 @@ export const PROJECTDATA: { [projectName: string]: ProjectData } = {
   },
   bookTez: {
     logo: [bookTezLogo, "https://github.com/TeamBookTez/booktez-client"],
-    title: "색으로 찾는 나만의 향기: dnol.",
+    title: "진짜 독서가들을 위한 독서법: 북스테어즈",
     textColor: theme.colors.bookTezBlack,
     bgColor: theme.colors.bookTezBg,
     pointColor: theme.colors.bookTezPoint,
-    infoData: INFOS["dnol"],
-    connectData: CONNECTS["dnol"],
-    projectDatum: PROJECTDATUM["dnol"],
+    infoData: INFOS["bookTez"],
+    connectData: CONNECTS["bookTez"],
+    projectDatum: PROJECTDATUM["bookTez"],
   },
 };
