@@ -33,11 +33,8 @@ module.exports = {
           DEFAULT: "#FFFFFF",
           dark: "#F0EFE9",
         },
-        beige: {
-          DEFAULT: "#E3D5B4",
-        },
         blue: {
-          DEFAULT: "#a5cce4",
+          DEFAULT: "#c5dbe9",
           dark: "#97A9B4",
         },
         navy: {

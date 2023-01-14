@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
 
   color: #17406b;
-  background-color: #a5cce4;
+  background-color: #c5dbe9;
 }
 
 a {
@@ -31,4 +31,8 @@ a {
 ol,
 ul {
   list-style-type: none;
+}
+
+#__next {
+  border: 1px solid #97A9B4;
 }
