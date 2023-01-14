@@ -9,10 +9,9 @@ const connectDB = async () => {
     mongoose.set("autoCreate", true);
 
     console.log("Mongoose Connected ...");
-
   } catch (error) {
     if (error instanceof MongooseError) {
-      console.log(error.message)
+      console.log(error.message);
       process.exit(1);
     }
   }

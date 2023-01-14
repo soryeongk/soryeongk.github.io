@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { CommentController } from "../controllers";
 
 const router: Router = Router();

@@ -1,6 +1,3 @@
 import { CommentCreateDto } from "./CommentCreateDto";
 
-
-export interface CommentResponseDto extends CommentCreateDto {
-
-}
+export interface CommentResponseDto extends CommentCreateDto {}

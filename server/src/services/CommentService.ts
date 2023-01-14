@@ -7,16 +7,17 @@ const createComment = async (commentCreateDto: CommentCreateDto) => {
     const comment = new Comment({
       content: commentCreateDto.content,
       writer: commentCreateDto.writer,
-    })
+    });
 
     await comment.save();
 
     const data = {
-      _id: comment._id
+      _id: comment._id,
     };
 
     return data;
   } catch (error) {
+    console.log("📌 soryeongk error", error);
     throw error;
   }
 };
@@ -24,10 +25,11 @@ const createComment = async (commentCreateDto: CommentCreateDto) => {
 const getComments = async () => {
   try {
     const comments: CommentResponseDto[] = await Comment.find();
-    
+
     return comments;
   } catch (error) {
-    throw error
+    console.log("📌 soryeongk error", error);
+    throw error;
   }
 };
 
@@ -35,6 +37,7 @@ const deleteComment = async (commentId: string) => {
   try {
     await Comment.findByIdAndDelete(commentId);
   } catch (error) {
+    console.log("📌 soryeongk error", error);
     throw error;
   }
 };
@@ -42,5 +45,5 @@ const deleteComment = async (commentId: string) => {
 export default {
   createComment,
   getComments,
-  deleteComment
-}
+  deleteComment,
+};

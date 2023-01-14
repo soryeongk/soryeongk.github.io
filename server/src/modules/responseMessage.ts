@@ -6,6 +6,7 @@ const message = {
 
   // 댓글
   CREATE_COMMENT_SUCCESS: "댓글 생성에 성공했습니다.",
+  READ_COMMENTS_SUCCESS: "댓글 리스트 조회에 성공했습니다",
 };
 
 export default message;
