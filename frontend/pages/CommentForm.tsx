@@ -1,25 +1,77 @@
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
+
+import { postComment } from "../axios/comments";
+import { QUERY_KEY } from "../axios/types/comment";
+
 const CommentForm = () => {
+  const [comment, setComment] = useState<{
+    writer?: string;
+    content: string;
+  }>({
+    content: "",
+  });
+
+  const setCommentWriter = (e: ChangeEvent<HTMLInputElement>) => {
+    setComment((current) => ({ ...current, writer: e.target.value }));
+  };
+
+  const setCommentContent = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setComment((current) => ({ ...current, content: e.target.value }));
+  };
+
+  const clearCommentContent = () => {
+    setComment({ writer: "", content: "" });
+  };
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation(postComment, {
+    onSuccess() {
+      clearCommentContent();
+      queryClient.invalidateQueries(QUERY_KEY.Comments);
+    },
+  });
+
+  const submitComment = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutation.mutate({ ...comment });
+  };
+
   return (
-    <form className="flex flex-col gap-y-2 p-1">
+    <form
+      className="flex flex-col gap-y-2 p-3 bg-white-dark"
+      onSubmit={submitComment}
+    >
       <fieldset className="flex flex-col gap-y-1">
         <label className="flex items-center gap-x-1">
           <strong>작성자</strong>
           <span>(익명으로 남길 수도 있어요!)</span>
         </label>
-        <input className="bg-transparent border-2 border-navy-dark rounded-lg" />
+        <input
+          className="p-2 bg-transparent border border-navy-dark rounded-lg placeholder:text-500"
+          placeholder="댓글을 쓰는 당신의 이름은 무엇인가요?"
+          value={comment.writer || ""}
+          onChange={setCommentWriter}
+        />
       </fieldset>
 
       <fieldset className="flex flex-col gap-x-1">
         <label className="flex items-center gap-x-1">
-          <strong>댓글</strong>
+          <strong>방명록</strong>
           <span>(어떤 내용이든 좋아요 :D)</span>
         </label>
-        <textarea className="bg-transparent border-2 border-navy-dark rounded-lg" />
+        <textarea
+          className="p-2 bg-transparent border border-navy-dark rounded-lg placeholder:text-500"
+          placeholder="방명록을 남겨주세요 :) 응원은 큰 힘이 됩니다!"
+          value={comment.content}
+          onChange={setCommentContent}
+        />
       </fieldset>
 
       <button
         type="submit"
-        className="border-2 border-navy-dark rounded-lg p-2 bg-beige"
+        className="border border-navy-dark rounded-lg p-2 bg-navy text-white disabled:bg-gray-300 disabled:text-gray-500 disabled:border-gray-500"
+        disabled={!comment.content}
       >
         작성완료
       </button>

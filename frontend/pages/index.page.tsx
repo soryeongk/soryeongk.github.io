@@ -18,9 +18,9 @@ export default function Home() {
       <header className="bg-white-dark w-full">
         <span>soryeongk</span>
       </header>
-      <main>
-        <div className="flex flex-col gap-y-4 bg-white-dark">
-          <span>방명록을 남겨주세요!</span>
+      <main className="mt-2">
+        <div className="flex flex-col gap-y-1">
+          <span className="p-3 bg-white-dark text-xl font-bold">방명록</span>
           <CommentForm />
           <Comments />
         </div>
