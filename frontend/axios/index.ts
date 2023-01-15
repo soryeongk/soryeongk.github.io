@@ -20,4 +20,11 @@ baseInstance.interceptors.response.use((response) => {
   return response.data;
 });
 
-export { baseInstance };
+const githubInstance = axios.create({
+  baseURL: `${process.env.SERVER_GITHUB_USER_URL}`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export { baseInstance, githubInstance };
