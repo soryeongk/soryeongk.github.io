@@ -1,30 +1,47 @@
-import Head from "next/head";
+import Image from "next/image";
+import { useQuery } from "react-query";
 
-import CommentForm from "./CommentForm";
-import Comments from "./Comments";
+import { getMyGithubInfo } from "../axios/githubUser";
+import { QUERY_KEY } from "../axios/types";
+import Layout from "../components/Layout";
+import SectionTitle from "../components/SectionTitle";
+
+import Career from "./Careers";
+import Education from "./Educations";
 
 export default function Home() {
+  const { data } = useQuery(QUERY_KEY.GithubUser, getMyGithubInfo);
+
   return (
-    <>
-      <Head>
-        <title>령로그</title>
-        <meta
-          name="description"
-          content="귀여운 령이의 귀엽지만은 않은 포트폴리오"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <header className="bg-white-dark w-full">
-        <span>soryeongk</span>
-      </header>
-      <main className="mt-2">
-        <div className="flex flex-col gap-y-1">
-          <span className="p-3 bg-white-dark text-xl font-bold">방명록</span>
-          <CommentForm />
-          <Comments />
+    <Layout>
+      <div className="flex flex-col items-center gap-y-1">
+        <div className="flex flex-col items-center gap-y-4 py-3 bg-white-dark w-full">
+          <div className="relative w-[300px] h-[300px] border border-gray-500 rounded-full overflow-hidden">
+            <Image
+              src={
+                data?.avatar_url ||
+                "https://avatars.githubusercontent.com/u/40630964?v=4"
+              }
+              alt="프로필 사진"
+              fill={true}
+            />
+          </div>
+          <div className="flex items-end">
+            <h1 className="text-3xl font-bold">김소령</h1>
+            {data?.bio && <h2 className="text-lg">: {data.bio}</h2>}
+          </div>
         </div>
-      </main>
-    </>
+
+        <div className="flex flex-col w-full bg-white-dark ">
+          <SectionTitle title="CAREERS" />
+          <Career />
+        </div>
+
+        <div className="flex flex-col w-full bg-white-dark ">
+          <SectionTitle title="EDUCATIONS" />
+          <Education />
+        </div>
+      </div>
+    </Layout>
   );
 }

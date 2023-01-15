@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 
-import { postComment } from "../axios/comments";
-import { QUERY_KEY } from "../axios/types/comment";
+import { postComment } from "../../axios/comments";
+import { QUERY_KEY } from "../../axios/types";
 
 const CommentForm = () => {
   const [comment, setComment] = useState<{

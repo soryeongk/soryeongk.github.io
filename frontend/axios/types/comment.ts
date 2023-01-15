@@ -1,7 +1,3 @@
-export const QUERY_KEY = {
-  Comments: "COMMENTS",
-} as const;
-
 interface Comment {
   _id: string;
   content: string;

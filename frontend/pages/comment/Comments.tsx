@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 
-import { getComments, deleteComment } from "../axios/comments";
-import { QUERY_KEY } from "../axios/types/comment";
-import { CloseWithCircleIcon } from "../public/images/icons";
+import { getComments, deleteComment } from "../../axios/comments";
+import { QUERY_KEY } from "../../axios/types";
+import { CloseWithCircleIcon } from "../../public/images/icons";
 
 const Comments = () => {
   const { data, isLoading, isError } = useQuery(
