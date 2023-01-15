@@ -1,8 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
 
-import { postComment } from "../../axios/comments";
-import { QUERY_KEY } from "../../axios/types";
+import { useCreateComment } from "../../hooks/comment";
 
 const CommentForm = () => {
   const [comment, setComment] = useState<{
@@ -24,13 +22,7 @@ const CommentForm = () => {
     setComment({ writer: "", content: "" });
   };
 
-  const queryClient = useQueryClient();
-  const mutation = useMutation(postComment, {
-    onSuccess() {
-      clearCommentContent();
-      queryClient.invalidateQueries(QUERY_KEY.Comments);
-    },
-  });
+  const mutation = useCreateComment(clearCommentContent);
 
   const submitComment = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,6 +40,7 @@ const CommentForm = () => {
           <span>(익명으로 남길 수도 있어요!)</span>
         </label>
         <input
+          type="text"
           className="p-2 bg-transparent border border-navy-dark rounded-lg placeholder:text-500"
           placeholder="댓글을 쓰는 당신의 이름은 무엇인가요?"
           value={comment.writer || ""}

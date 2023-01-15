@@ -1,20 +1,9 @@
-import { useQuery, useMutation, useQueryClient } from "react-query";
-
-import { getComments, deleteComment } from "../../axios/comments";
-import { QUERY_KEY } from "../../axios/types";
-import { CloseWithCircleIcon } from "../../public/images/icons";
+import CloseIcon from "../../components/icons/CloseIcon";
+import { useReadComments, useDeleteComment } from "../../hooks/comment";
 
 const Comments = () => {
-  const { data, isLoading, isError } = useQuery(
-    QUERY_KEY.Comments,
-    getComments
-  );
-  const queryClient = useQueryClient();
-  const mutation = useMutation(deleteComment, {
-    onSuccess() {
-      queryClient.invalidateQueries(QUERY_KEY.Comments);
-    },
-  });
+  const { data, isLoading, isError } = useReadComments();
+  const mutation = useDeleteComment();
 
   const clickDeleteComment = (commentId: string) => {
     mutation.mutate(commentId);
@@ -24,13 +13,13 @@ const Comments = () => {
     return <div>댓글 목록을 불러오는 중이에요!</div>;
   }
 
-  if (isError) {
+  if (!data || isError) {
     return <div>댓글 목록을 불러오는데 실패했어요ㅠ</div>;
   }
 
   return (
     <ul className="flex flex-col-reverse gap-y-[1px] bg-transparent">
-      {data?.comments.map((comment) => (
+      {data.comments.map((comment) => (
         <li
           key={comment._id}
           className="relative flex flex-col gap-y-1 py-5 px-3 bg-white-dark"
@@ -46,12 +35,14 @@ const Comments = () => {
               <span>{new Date(comment.createdAt).toDateString()}</span>
             </div>
           }
-          <div
+          <button
+            aria-label="delete-button"
+            type="button"
             className="absolute right-4 top-4"
             onClick={() => clickDeleteComment(comment._id)}
           >
-            <CloseWithCircleIcon />
-          </div>
+            <CloseIcon />
+          </button>
         </li>
       ))}
     </ul>
