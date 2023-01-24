@@ -9,7 +9,7 @@ const nextConfig = {
     SERVER_GITHUB_USER_URL: NEXT_PUBLIC_SERVER_GITHUB_USER_URL,
   },
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    domains: ["avatars.githubusercontent.com", "help.instagram.com"],
   },
   pageExtensions: ["page.tsx", "api.ts"],
   webpack: (config) => {
