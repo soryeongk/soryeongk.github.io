@@ -3,8 +3,8 @@ export default function Education() {
     <div className="px-4 pb-3 bg-gray-100 w-full">
       <ul className="flex flex-col gap-y-[1px] w-full bg-blue">
         <EducationListItem
-          date="2016.03 ~"
-          text="중앙대학교 재학 중"
+          date="2016.03 ~ 2022.02"
+          text="중앙대학교 졸업"
           memo="경영학 전공"
         />
         <EducationListItem
@@ -14,8 +14,8 @@ export default function Education() {
         />
         <EducationListItem
           date="2018.06 ~ 2018.10"
-          text="빅데이터 전문가과정 데잇걸즈 2기 수료"
-          memo="워킹홀리데이(2019.03 ~ 2020.02)"
+          text="데잇걸즈 2기 수료"
+          memo="데이터 사이언티스트 양성 교육 프로그램"
         />
         <EducationListItem
           date="2013.03 ~ 2016.02"
@@ -36,9 +36,9 @@ interface EducationListItemProps {
 function EducationListItem({ date, text, memo }: EducationListItemProps) {
   return (
     <li className="flex flex-col py-2 bg-gray-100">
-      <span className="text-gray-500">{date}</span>
+      <span className="text-blue">{date}</span>
       <strong>{text}</strong>
-      {memo && <span>{memo}</span>}
+      {memo && <span className="text-sm text-gray-600">{memo}</span>}
     </li>
   );
 }
