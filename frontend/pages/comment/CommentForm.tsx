@@ -31,7 +31,7 @@ const CommentForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-y-2 p-3 bg-white-dark"
+      className="flex flex-col gap-y-2 p-3 bg-gray-100"
       onSubmit={submitComment}
     >
       <fieldset className="flex flex-col gap-y-1">

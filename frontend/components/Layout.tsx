@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { PropsWithChildren } from "react";
 
+import BottomNavigation from "./BottomNavigation";
 import Header from "./Header";
 
 export default function Layout(props: PropsWithChildren) {
@@ -16,7 +17,8 @@ export default function Layout(props: PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="mt-2">{props.children}</main>
+      <main>{props.children}</main>
+      <BottomNavigation />
     </>
   );
 }

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="flex flex-col items-center gap-y-1">
-        <div className="flex flex-col items-center gap-y-4 py-3 bg-white-dark w-full">
+        <div className="flex flex-col items-center gap-y-4 py-3 bg-gray-100 w-full">
           <div className="relative w-[300px] h-[300px] border border-gray-500 rounded-full overflow-hidden">
             <Image
               src={
@@ -32,12 +32,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full bg-white-dark ">
+        <div className="flex flex-col w-full bg-gray-100 ">
           <SectionTitle title="CAREERS" />
           <Career />
         </div>
 
-        <div className="flex flex-col w-full bg-white-dark ">
+        <div className="flex flex-col w-full bg-gray-100 ">
           <SectionTitle title="EDUCATIONS" />
           <Education />
         </div>

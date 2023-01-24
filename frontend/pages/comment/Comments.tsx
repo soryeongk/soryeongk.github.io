@@ -22,7 +22,7 @@ const Comments = () => {
       {data.comments.map((comment) => (
         <li
           key={comment._id}
-          className="relative flex flex-col gap-y-1 py-5 px-3 bg-white-dark"
+          className="relative flex flex-col gap-y-1 py-5 px-3 bg-gray-100"
         >
           <div className="flex items-center p-1">
             <strong>{comment.writer || "익명의 방문자"}</strong>

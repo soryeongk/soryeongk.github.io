@@ -7,7 +7,7 @@ import Comments from "./Comments";
 export default function CommentPage() {
   return (
     <Layout>
-      <div className="flex flex-col gap-y-1 bg-white-dark ">
+      <div className="flex flex-col gap-y-1 bg-gray-100 ">
         <SectionTitle title="방명록" />
         <CommentForm />
         <Comments />

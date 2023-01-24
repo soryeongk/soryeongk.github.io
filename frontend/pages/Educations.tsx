@@ -1,6 +1,6 @@
 export default function Education() {
   return (
-    <div className="px-3 pb-3 bg-white-dark w-full">
+    <div className="px-4 pb-3 bg-gray-100 w-full">
       <ul className="flex flex-col gap-y-[1px] w-full bg-blue">
         <EducationListItem
           date="2016.03 ~"
@@ -35,7 +35,7 @@ interface EducationListItemProps {
 
 function EducationListItem({ date, text, memo }: EducationListItemProps) {
   return (
-    <li className="flex flex-col py-2 bg-white-dark">
+    <li className="flex flex-col py-2 bg-gray-100">
       <span className="text-gray-500">{date}</span>
       <strong>{text}</strong>
       {memo && <span>{memo}</span>}

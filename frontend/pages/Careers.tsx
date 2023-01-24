@@ -1,6 +1,6 @@
 export default function Careers() {
   return (
-    <div className="px-3 pb-3 bg-white-dark w-full">
+    <div className="px-4 pb-3 bg-gray-100 w-full">
       <ul className="flex flex-col gap-y-[1px] w-full bg-blue">
         <CareerListItem
           date="2022.07 ~"
@@ -26,7 +26,7 @@ interface CareerListItemProps {
 
 function CareerListItem({ date, text, skills }: CareerListItemProps) {
   return (
-    <li className="flex flex-col py-2 bg-white-dark">
+    <li className="flex flex-col py-2 bg-gray-100">
       <div className="flex flex-col">
         <span className="text-gray-500">{date}</span>
         <strong>{text}</strong>
