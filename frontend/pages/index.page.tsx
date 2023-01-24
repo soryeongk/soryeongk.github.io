@@ -7,8 +7,8 @@ import Layout from "../components/Layout";
 import SectionTitle from "../components/SectionTitle";
 
 import Achievements from "./Achievements";
-import Career from "./Careers";
-import Education from "./Educations";
+import Careers from "./Careers";
+import Educations from "./Educations";
 import Projects from "./Projects";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
 
         <div className="flex flex-col w-full bg-gray-100 ">
           <SectionTitle title="CAREERS" />
-          <Career />
+          <Careers />
         </div>
 
         <div className="flex flex-col w-full bg-gray-100 ">
@@ -51,7 +51,7 @@ export default function Home() {
 
         <div className="flex flex-col w-full bg-gray-100 ">
           <SectionTitle title="EDUCATIONS" />
-          <Education />
+          <Educations />
         </div>
       </div>
     </Layout>
