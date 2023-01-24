@@ -9,6 +9,7 @@ import SectionTitle from "../components/SectionTitle";
 import Achievements from "./Achievements";
 import Career from "./Careers";
 import Education from "./Educations";
+import Projects from "./Projects";
 
 export default function Home() {
   const { data } = useQuery(QUERY_KEY.GithubUser, getMyGithubInfo);
@@ -39,13 +40,18 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col w-full bg-gray-100 ">
-          <SectionTitle title="EDUCATIONS" />
-          <Education />
+          <SectionTitle title="Projects" />
+          <Projects />
         </div>
 
         <div className="flex flex-col w-full bg-gray-100 ">
           <SectionTitle title="Achievements" />
           <Achievements />
+        </div>
+
+        <div className="flex flex-col w-full bg-gray-100 ">
+          <SectionTitle title="EDUCATIONS" />
+          <Education />
         </div>
       </div>
     </Layout>
