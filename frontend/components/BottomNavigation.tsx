@@ -20,7 +20,7 @@ const BottomNavigation = () => {
   ];
 
   return (
-    <nav className="sticky bottom-0 left-0 right-0 flex items-center justify-between px-3 py-2 bg-gray-100 border-t border-t-blue-dark">
+    <nav className="sticky bottom-0 left-0 right-0 flex items-center justify-between px-3 py-2 bg-gray-100 border border-blue-dark">
       {navigationUrls.map((navigation) => (
         <Link key={navigation.url} href={`/${navigation.url}`} passHref>
           <span

@@ -7,7 +7,7 @@ import ModalBackground from "./modal/ModalBackground";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 left-0 right-0 z-10 flex items-end justify-between border-b border-b-blue-dark p-3 bg-gray-100 text-center">
+    <header className="sticky top-0 left-0 right-0 z-10 flex items-end justify-between border border-blue-dark p-3 bg-gray-100 text-center">
       <strong className="text-2xl">령로그</strong>
       <AccountId />
     </header>
