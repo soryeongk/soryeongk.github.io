@@ -5,15 +5,10 @@ import { useQuery } from "react-query";
 import { getMyGithubInfo } from "../axios/githubUser";
 import { QUERY_KEY } from "../axios/types";
 import Layout from "../components/Layout";
-import SectionTitle from "../components/SectionTitle";
 import { NavigationIndexProvider } from "../hooks/useNavigation";
 
-import Achievements from "./index/Achievements";
 import Activities from "./index/Activities";
-import Careers from "./index/Careers";
-import Educations from "./index/Educations";
 import Navigation from "./index/Navigation";
-import Projects from "./index/Projects";
 
 export default function Home() {
   const { data } = useQuery(QUERY_KEY.GithubUser, getMyGithubInfo);
@@ -40,25 +35,7 @@ export default function Home() {
 
         <NavigationIndexProvider>
           <Navigation />
-          <div className="flex flex-col w-full bg-gray-100 ">
-            <SectionTitle title="CAREERS" />
-            <Careers />
-          </div>
-
-          <div className="flex flex-col w-full bg-gray-100 ">
-            <SectionTitle title="Projects" />
-            <Projects />
-          </div>
-
-          <div className="flex flex-col w-full bg-gray-100 ">
-            <SectionTitle title="Achievements" />
-            <Achievements />
-          </div>
-
-          <div className="flex flex-col w-full bg-gray-100 ">
-            <SectionTitle title="EDUCATIONS" />
-            <Educations />
-          </div>
+          <Activities />
         </NavigationIndexProvider>
       </div>
     </Layout>

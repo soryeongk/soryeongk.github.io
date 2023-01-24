@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { useCreateComment } from "../../hooks/query/comment";
+import { useCreateCommentMutation } from "../../hooks/query/comment";
 
 const CommentForm = () => {
   const [comment, setComment] = useState<{
@@ -22,11 +22,11 @@ const CommentForm = () => {
     setComment({ writer: "", content: "" });
   };
 
-  const mutation = useCreateComment(clearCommentContent);
+  const createCommentMutation = useCreateCommentMutation(clearCommentContent);
 
   const submitComment = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    mutation.mutate({ ...comment });
+    createCommentMutation.mutate({ ...comment });
   };
 
   return (

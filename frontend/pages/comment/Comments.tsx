@@ -1,12 +1,15 @@
 import CloseIcon from "../../components/icons/CloseIcon";
-import { useReadComments, useDeleteComment } from "../../hooks/query/comment";
+import {
+  useReadComments,
+  useDeleteCommentMutation,
+} from "../../hooks/query/comment";
 
 const Comments = () => {
   const { data, isLoading, isError } = useReadComments();
-  const mutation = useDeleteComment();
+  const deleteCommentMutation = useDeleteCommentMutation();
 
   const clickDeleteComment = (commentId: string) => {
-    mutation.mutate(commentId);
+    deleteCommentMutation.mutate(commentId);
   };
 
   if (isLoading) {
