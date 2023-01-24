@@ -34,5 +34,8 @@ ul {
 }
 
 #__next {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #97A9B4;
+  height: 100%;
 }

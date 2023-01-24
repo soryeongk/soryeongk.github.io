@@ -17,7 +17,7 @@ export default function Layout(props: PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>{props.children}</main>
+      <main className="flex-1">{props.children}</main>
       <BottomNavigation />
     </>
   );
