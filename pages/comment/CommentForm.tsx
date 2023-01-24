@@ -31,10 +31,10 @@ const CommentForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-y-2 p-3 bg-gray-100"
+      className="flex flex-col gap-y-4 p-3 bg-gray-100"
       onSubmit={submitComment}
     >
-      <fieldset className="flex flex-col gap-y-1">
+      <fieldset className="flex flex-col gap-y-2">
         <label className="flex items-center gap-x-1">
           <strong>작성자</strong>
           <span>(익명으로 남길 수도 있어요!)</span>
@@ -48,7 +48,7 @@ const CommentForm = () => {
         />
       </fieldset>
 
-      <fieldset className="flex flex-col gap-x-1">
+      <fieldset className="flex flex-col gap-y-2">
         <label className="flex items-center gap-x-1">
           <strong>방명록</strong>
           <span>(어떤 내용이든 좋아요 :D)</span>

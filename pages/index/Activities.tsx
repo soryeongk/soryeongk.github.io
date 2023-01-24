@@ -3,7 +3,7 @@ import SectionTitle from "../../components/SectionTitle";
 import { useReadActivities } from "../../hooks/query/activity";
 import useNavigation, { NavigationIndex } from "../../hooks/useNavigation";
 import { parseDate } from "../../utils/date";
-import { ActivityCategory } from "../admin.page";
+import { ActivityCategory } from "../admin/index.page";
 
 import Achievements from "./Achievements";
 import Careers from "./Careers";

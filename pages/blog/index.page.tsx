@@ -3,7 +3,9 @@ import Layout from "../../components/Layout";
 const BlogPage = () => {
   return (
     <Layout>
-      <div>블로그 페이지</div>
+      <div className="flex items-center justify-center h-full text-gray-600">
+        킁.. 준비중이에오 🤫
+      </div>
     </Layout>
   );
 };

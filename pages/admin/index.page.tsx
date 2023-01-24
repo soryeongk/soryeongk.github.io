@@ -1,6 +1,5 @@
 import React from "react";
-
-import { useCreateActivityMutation } from "../hooks/query/activity";
+import { useCreateActivityMutation } from "../../hooks/query/activity";
 
 export enum ActivityCategory {
   CAREERS = "Careers",
