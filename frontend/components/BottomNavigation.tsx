@@ -14,8 +14,8 @@ const BottomNavigation = () => {
       text: "방명록",
     },
     {
-      url: "projects",
-      text: "프로젝트",
+      url: "blog",
+      text: "블로그",
     },
   ];
 
