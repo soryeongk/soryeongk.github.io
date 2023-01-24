@@ -12,7 +12,7 @@ export const useReadComments = () => {
   return { data, isLoading, isError };
 };
 
-export const useCreateComment = (onSuccessCallback?: () => void) => {
+export const useCreateCommentMutation = (onSuccessCallback?: () => void) => {
   const queryClient = useQueryClient();
 
   return useMutation(postComment, {
@@ -23,7 +23,7 @@ export const useCreateComment = (onSuccessCallback?: () => void) => {
   });
 };
 
-export const useDeleteComment = () => {
+export const useDeleteCommentMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation(deleteComment, {

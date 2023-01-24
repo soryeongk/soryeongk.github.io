@@ -6,15 +6,15 @@ interface Comment {
   updatedAt: Date;
 }
 
-export interface CommentsResponse {
+export type CommentsResponse = {
   comments: Comment[];
-}
+};
 
-export interface CommentResponse {
+export type CommentResponse = {
   comment: Comment;
-}
+};
 
-export interface CommentRequest {
+export type CommentRequest = {
   content: string;
   writer?: string;
-}
+};
