@@ -10,10 +10,6 @@ export default function Layout(props: PropsWithChildren) {
       <Head>
         <title>령로그</title>
         <meta
-          http-equiv="Content-Security-Policy"
-          content="upgrade-insecure-requests"
-        ></meta>
-        <meta
           name="description"
           content="귀여운 령이의 귀엽지만은 않은 포트폴리오"
         />

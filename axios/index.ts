@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseInstance = axios.create({
-  baseURL: `${process.env.SERVER_BASE_URL}`,
+  baseURL: "http://54.180.156.29:4000",
   headers: {
     "Content-Type": "application/json",
   },
@@ -21,7 +21,7 @@ baseInstance.interceptors.response.use((response) => {
 });
 
 const githubInstance = axios.create({
-  baseURL: `${process.env.SERVER_GITHUB_USER_URL}`,
+  baseURL: "https://api.github.com/users/",
   headers: {
     "Content-Type": "application/json",
   },
