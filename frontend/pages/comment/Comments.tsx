@@ -1,5 +1,5 @@
 import CloseIcon from "../../components/icons/CloseIcon";
-import { useReadComments, useDeleteComment } from "../../hooks/comment";
+import { useReadComments, useDeleteComment } from "../../hooks/query/comment";
 
 const Comments = () => {
   const { data, isLoading, isError } = useReadComments();

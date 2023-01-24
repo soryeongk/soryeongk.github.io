@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { useCreateComment } from "../../hooks/comment";
+import { useCreateComment } from "../../hooks/query/comment";
 
 const CommentForm = () => {
   const [comment, setComment] = useState<{

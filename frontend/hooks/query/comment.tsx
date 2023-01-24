@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient, useMutation } from "react-query";
 
-import { deleteComment, getComments, postComment } from "../axios/comments";
-import { QUERY_KEY } from "../axios/types/index";
+import { deleteComment, getComments, postComment } from "../../axios/comments";
+import { QUERY_KEY } from "../../axios/types/index";
 
 export const useReadComments = () => {
   const { data, isLoading, isError } = useQuery(
