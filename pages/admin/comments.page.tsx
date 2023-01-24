@@ -1,6 +1,6 @@
+import CloseIcon from "../../components/icons/CloseIcon";
 import Layout from "../../components/Layout";
 import SectionTitle from "../../components/SectionTitle";
-import CloseIcon from "../../components/icons/CloseIcon";
 import {
   useDeleteCommentMutation,
   useReadComments,

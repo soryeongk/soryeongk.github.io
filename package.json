@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watchAll --env=jsdom",
+    "export": "next export",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },

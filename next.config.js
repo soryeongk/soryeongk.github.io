@@ -17,6 +17,7 @@ const nextConfig = {
   },
   images: {
     domains: ["avatars.githubusercontent.com", "help.instagram.com"],
+    unoptimized: true,
   },
   pageExtensions: ["page.tsx", "api.ts"],
   webpack: (config) => {
