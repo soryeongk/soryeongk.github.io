@@ -51,7 +51,7 @@ const LinkToAccountPageModal = ({
           <div className="flex flex-col items-center gap-y-1">
             <div className="relative w-9 h-9">
               <Image
-                src="/images/github-mark.png"
+                src={`${process.env.PREFIX_URL}/images/github-mark.png`}
                 alt="깃헙 아이콘"
                 fill={true}
               />
@@ -67,7 +67,7 @@ const LinkToAccountPageModal = ({
           <div className="flex flex-col items-center gap-y-1">
             <div className="relative w-9 h-9">
               <Image
-                src="/images/instagram.png"
+                src={`${process.env.PREFIX_URL}/images/instagram.png`}
                 alt="깃헙 아이콘"
                 fill={true}
               />

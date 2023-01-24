@@ -30,8 +30,8 @@ const ProjectListItem = ({
       <span className="text-gray-500">
         {[parseDate(date.from), "~", parseDate(date.to)].join(" ")}
       </span>
-      <div className="flex items-center justify-between">
-        <strong>{title}</strong>
+      <div className="flex justify-between">
+        <strong className="flex-1">{title}</strong>
         {url && (
           <a href={url} target="_blank" rel="noreferrer">
             <span className="shrink-0 text-xs text-gray-500 underline decoration-wavy underline-offset-4">
