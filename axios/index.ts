@@ -4,7 +4,6 @@ const baseInstance = axios.create({
   baseURL: "http://54.180.156.29:4000",
   headers: {
     "Content-Type": "application/json",
-    "Content-Security-Policy": "upgrade-insecure-requests",
   },
 });
 
