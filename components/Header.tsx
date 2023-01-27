@@ -53,7 +53,8 @@ const LinkToAccountPageModal = ({
               <Image
                 src={`${process.env.PREFIX_URL}/images/github-mark.png`}
                 alt="깃헙 아이콘"
-                fill={true}
+                fill
+                sizes="36px"
               />
             </div>
             <span>github</span>
@@ -69,7 +70,8 @@ const LinkToAccountPageModal = ({
               <Image
                 src={`${process.env.PREFIX_URL}/images/instagram.png`}
                 alt="깃헙 아이콘"
-                fill={true}
+                fill
+                sizes="36px"
               />
             </div>
             <span>instagram</span>

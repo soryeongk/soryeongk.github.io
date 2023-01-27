@@ -1,7 +1,12 @@
+import { useRecoilValue } from "recoil";
+
+import {
+  NavigationIndex,
+  navigationIndexAtom,
+} from "../../atom/navigationIndex";
 import { ActivityResponse } from "../../axios/types/activity";
 import SectionTitle from "../../components/SectionTitle";
 import { useReadActivities } from "../../hooks/query/activity";
-import useNavigation, { NavigationIndex } from "../../hooks/useNavigation";
 import { parseDate } from "../../utils/date";
 import { ActivityCategory } from "../admin/index.page";
 
@@ -11,7 +16,7 @@ import Educations from "./Educations";
 import Projects from "./Projects";
 
 const Activities = () => {
-  const { navigationIndex } = useNavigation();
+  const navigationIndex = useRecoilValue(navigationIndexAtom);
   const { data, isLoading, isError } = useReadActivities();
 
   if (isLoading) {
