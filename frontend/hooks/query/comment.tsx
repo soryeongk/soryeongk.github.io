@@ -4,10 +4,11 @@ import { deleteComment, getComments, postComment } from "../../axios/comments";
 import { QUERY_KEY } from "../../axios/types/index";
 
 export const useReadComments = () => {
-  const { data, isLoading, isError } = useQuery(
-    QUERY_KEY.Comments,
-    getComments
-  );
+  const { data, isLoading, isError } = useQuery({
+    queryKey: QUERY_KEY.Comments,
+    queryFn: getComments,
+    suspense: true,
+  });
 
   return { data, isLoading, isError };
 };
