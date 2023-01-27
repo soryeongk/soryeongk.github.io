@@ -1,7 +1,13 @@
-import useNavigation, { NavigationIndex } from "../../hooks/useNavigation";
+import { useRecoilState } from "recoil";
+
+import {
+  NavigationIndex,
+  navigationIndexAtom,
+} from "../../atom/navigationIndex";
 
 const Navigation = () => {
-  const { navigationIndex, setNavigationIndex } = useNavigation();
+  const [navigationIndex, setNavigationIndex] =
+    useRecoilState(navigationIndexAtom);
 
   return (
     <nav className="flex items-center gap-x-4">

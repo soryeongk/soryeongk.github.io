@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import { useQuery } from "react-query";
+import { RecoilRoot } from "recoil";
 
 import { getMyGithubInfo } from "../axios/githubUser";
 import { QUERY_KEY } from "../axios/types";
 import Layout from "../components/Layout";
-import { NavigationIndexProvider } from "../hooks/useNavigation";
 
 import Activities from "./index/Activities";
 import Navigation from "./index/Navigation";
@@ -32,11 +32,10 @@ export default function Home() {
             {data?.bio && <h2 className="text-lg">: {data.bio}</h2>}
           </div>
         </div>
-
-        <NavigationIndexProvider>
+        <RecoilRoot>
           <Navigation />
           <Activities />
-        </NavigationIndexProvider>
+        </RecoilRoot>
       </div>
     </Layout>
   );
