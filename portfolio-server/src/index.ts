@@ -32,10 +32,10 @@ app.use(function (err: ErrorType, req: Request, res: Response) {
 });
 
 app
-  .listen(process.env.PORT, () => {
+  .listen(undefined, () => {
     console.log(`
     ################################################
-        🛡️  Server listening on port ${process.env.PORT} 🛡️
+        🛡️  Server listening on port 🛡️
     ################################################
   `);
   })
